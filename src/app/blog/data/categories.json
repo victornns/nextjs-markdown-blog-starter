@@ -1,0 +1,14 @@
+[
+    {
+        "slug": "design",
+        "name": "Design",
+        "description": "Posts about UX/UI",
+        "coverImage": "https://dummyimage.com/800x600/4B70A2/ffffff&text=Design"
+    },
+    {
+        "slug": "performance",
+        "name": "Performance",
+        "description": "Website optimization",
+        "coverImage": "https://dummyimage.com/800x600/D35746/ffffff&text=Performance"
+    }
+]
