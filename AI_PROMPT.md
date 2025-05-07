@@ -1,45 +1,45 @@
 # AI_PROMPT.md
 
-> ⚠️ **IMPORTANTE:**  
-> Este arquivo contém o prompt principal usado para orientar modelos de IA como GitHub Copilot, Claude 3.7 Sonnet ou GPT-4o na geração e estruturação deste projeto.  
+> ⚠️ **IMPORTANT:**  
+> This file contains the main prompt used to guide AI models such as GitHub Copilot, Claude 3.7 Sonnet, or GPT-4o in generating and structuring this project.
 
 ---
 
-## 🧠 Prompt completo (blog em Next.js 15 com Markdown, SEO e arquitetura modular)
+## 🧠 Full Prompt (Blog with Next.js 15, Markdown, SEO, and Modular Architecture)
 
-**Framing inicial (para Copilot ou outro modelo):**
+**Initial framing (for Copilot or other model):**
 
-> Responda como um engenheiro de software sênior especializado em desenvolvimento web escalável, utilizando Next.js 15, App Router, Markdown, TypeScript e práticas modernas de SEO.  
-> Siga estritamente as instruções fornecidas abaixo.  
-> Escreva código limpo, modular, claro, tipado e focado em performance, escalabilidade e organização.  
-> Evite código desnecessário. Concentre-se apenas na implementação específica descrita.  
-> Cite claramente quais arquivos estão sendo afetados ou criados.
-
----
-
-**Instruções técnicas:**
-
-No meu projeto Next.js estruturado com a pasta `/src/app`, crie uma nova área de blog em `/src/app/blog`, utilizando o App Router.
-
-O blog deve conter:
-
-- `/src/app/blog/page.tsx`: Página principal listando todos os posts.
-- `/src/app/blog/[category]/page.tsx`: Página de listagem de posts por categoria.
-- `/src/app/blog/[category]/[slug]/page.tsx`: Página individual de cada post.
-
-Crie também as pastas:
-
-- `/src/app/blog/components/`: Para componentes reutilizáveis como PostCard, Sidebar, Pagination, etc.
-- `/src/app/blog/data/posts/`: Para armazenar os arquivos de posts em `.md`.
-- `/src/app/blog/data/categories.json`: Arquivo com todas as categorias válidas.
-- `/src/app/blog/types/`: Para definir os tipos TypeScript.
-- `/src/app/blog/lib/`: Para funções utilitárias (como getAllPosts, getPostBySlug, etc.).
+> Respond as a senior software engineer specialized in scalable web development using Next.js 15, App Router, Markdown, TypeScript, and modern SEO best practices.  
+> Follow the instructions below strictly.  
+> Write clean, modular, clear, and typed code focused on performance, scalability, and maintainability.  
+> Avoid unnecessary code. Focus only on the specific implementation described.  
+> Clearly state which files are being affected or created.
 
 ---
 
-**Dados dos posts:**
+**Technical instructions:**
 
-- Cada post deve ser um arquivo `.md` com frontmatter obrigatório:
+In my Next.js project structured under `/src/app`, create a new blog section at `/src/app/blog`, using the App Router.
+
+The blog must include:
+
+- `/src/app/blog/page.tsx`: Main page listing all posts.
+- `/src/app/blog/[category]/page.tsx`: Page listing posts by category.
+- `/src/app/blog/[category]/[slug]/page.tsx`: Individual blog post page.
+
+Also create the following folders:
+
+- `/src/app/blog/components/`: For reusable components like PostCard, Sidebar, Pagination, etc.
+- `/src/app/blog/data/posts/`: To store the post files in `.md`.
+- `/src/app/blog/data/categories.json`: File with all valid categories.
+- `/src/app/blog/types/`: To define TypeScript types.
+- `/src/app/blog/lib/`: For utility functions (e.g., getAllPosts, getPostBySlug, etc.).
+
+---
+
+**Post data:**
+
+- Each post must be a `.md` file with the following required frontmatter:
   ```
   title: string  
   subtitle: string  
@@ -50,73 +50,74 @@ Crie também as pastas:
   coverImage?: string  
   seoDescription?: string
   ```
-- O conteúdo Markdown será convertido em HTML para exibição.
-- Exemplo de caminho: `/src/app/blog/data/posts/o-que-e-ui-ux.md`
+- The Markdown content should be converted to HTML for rendering.
+- Example path: `/src/app/blog/data/posts/o-que-e-ui-ux.md`
 
 ---
 
-**Categorias:**
+**Categories:**
 
-- Criar um arquivo `/src/app/blog/data/categories.json` contendo todas as categorias válidas:
+- Create a file at `/src/app/blog/data/categories.json` containing all valid categories:
   ```json
   [
     {
       "slug": "design",
       "name": "Design",
-      "description": "Posts sobre UX/UI",
+      "description": "Posts about UX/UI",
       "coverImage": "/images/categories/design.jpg"
     },
     {
       "slug": "performance",
       "name": "Performance",
-      "description": "Otimização de sites"
+      "description": "Website optimization"
     }
   ]
   ```
-- Tipar a categoria com `CategorySlug` (ex: `'design' | 'performance'`), validando se o campo `category` dos posts existe no JSON.
+- Create a `CategorySlug` type (e.g., `'design' | 'performance'`) and ensure the `category` field in each post matches a valid value from this list.
 
 ---
 
-**Renderização e comportamento:**
+**Rendering and behavior:**
 
-- Na página de post individual, renderizar:
-  - `title`, `subtitle`, `date`, `category`, `tempo estimado de leitura`, `HTML do post`.
-- Usar marcação HTML semântica: `<article>`, `<header>`, `<main>`, `<aside>`, `<footer>`, etc.
-- Adicionar SEO dinâmico com base no frontmatter (ex: `<title>`, `<meta name="description">`, `og:title`, `og:description`, `og:image`, `twitter:card`, etc.).
-- URLs devem seguir formato: `/blog/design/o-que-e-ui-ux`
-- Respeitar hierarquia de headings (`h1`, `h2`, `h3`).
+- On individual post pages, render:
+  - `title`, `subtitle`, `date`, `category`, `estimated reading time`, and the post HTML content.
+- Use semantic HTML tags: `<article>`, `<header>`, `<main>`, `<aside>`, `<footer>`, etc.
+- Add dynamic SEO metadata using frontmatter:
+  - `<title>`, `<meta name="description">`, `og:title`, `og:description`, `og:image`, `twitter:card`, etc.
+- Clean, user-friendly URLs like: `/blog/design/o-que-e-ui-ux`
+- Respect heading hierarchy (`h1`, `h2`, `h3`).
 
 ---
 
-**Paginação:**
+**Pagination:**
 
-- Implementar paginação obrigatória nas páginas:
+- Pagination is required for:
   - `/blog/page.tsx`
   - `/blog/[category]/page.tsx`
-- Usar um componente `Pagination` simples e funcional.
+- Use a simple, functional `Pagination` component.
 
 ---
 
-**Funções utilitárias (em `/lib/`):**
+**Utility functions (inside `/lib/`):**
 
-- `getAllPosts()`: Lê todos os arquivos `.md`, extrai frontmatter e retorna array de posts ordenados por data.
-- `getPostBySlug(slug: string)`: Retorna um único post com o conteúdo convertido.
-- `getPostsByCategory(category: CategorySlug)`: Retorna os posts filtrados.
-- `getAllCategories()`: Retorna a lista de categorias do JSON.
-
----
-
-**Comportamento adicional:**
-
-- Calcular e exibir o tempo estimado de leitura (baseado na contagem de palavras).
-- Injetar `excerpt` nas listagens.
-- Garantir que todos os tipos sejam fortes (`Post`, `Category`, `CategorySlug`, etc.).
-- Evitar dependências desnecessárias.
-- Estruturar o projeto para facilitar uma futura migração da fonte de dados Markdown para uma API externa com o mesmo formato.
+- `getAllPosts()`: Reads all `.md` files, parses frontmatter, returns posts ordered by date.
+- `getPostBySlug(slug: string)`: Returns a single post with converted HTML content.
+- `getPostsByCategory(category: CategorySlug)`: Returns filtered posts by category.
+- `getAllCategories()`: Returns the list of categories from JSON.
 
 ---
 
-**Arquitetura de pastas esperada:**
+**Additional behavior:**
+
+- Calculate and display the estimated reading time (based on word count).
+- Include `excerpt` in the post listings.
+- Ensure strong typing with `Post`, `Category`, `CategorySlug`, etc.
+- Avoid unnecessary dependencies.
+- Structure the project to allow easy migration from Markdown to an external API that returns the same data format.
+
+---
+
+**Expected folder architecture:**
 
 ```
 /src/app/blog/
@@ -146,4 +147,4 @@ Crie também as pastas:
 
 ---
 
-> Fim do prompt.
+> End of prompt.
