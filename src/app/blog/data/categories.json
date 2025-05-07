@@ -1,0 +1,13 @@
+[
+    {
+        "slug": "design",
+        "name": "Design",
+        "description": "Posts sobre UX/UI",
+        "coverImage": "/images/categories/design.jpg"
+    },
+    {
+        "slug": "performance",
+        "name": "Performance",
+        "description": "Otimização de sites"
+    }
+]
