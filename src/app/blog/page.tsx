@@ -16,14 +16,15 @@ export const metadata: Metadata = {
 };
 
 interface PageProps {
-    searchParams: { page?: string };
+    searchParams: Promise<{ page?: string }>;
 }
 
 const POSTS_PER_PAGE = 9;
 
 export default async function BlogPage({ searchParams }: PageProps) {
     // Ensure searchParams is properly awaited
-    const page = searchParams?.page;
+    const params = await searchParams;
+    const page = params?.page;
     const currentPage = page ? parseInt(page) : 1;
     const allPosts = getAllPosts();
 

@@ -7,35 +7,36 @@ import PostList from '../components/PostList';
 import Pagination from '../components/Pagination';
 import Sidebar from '../components/Sidebar';
 
-interface PageProps {
-    params: {
-        category: string;
-    };
-    searchParams: { page?: string };
+type PageProps = {
+    params: Promise<{ category: string }>;
+    searchParams?: Promise<{ page?: string }>;
 }
 
 const POSTS_PER_PAGE = 9;
 
 // Generate metadata for the category page
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata(
+    { params }: PageProps
+): Promise<Metadata> {
+    const { category } = await params;
     const categories = getAllCategories();
-    const category = categories.find(cat => cat.slug === params.category);
+    const categoryData = categories.find(cat => cat.slug === category);
 
-    if (!category) {
+    if (!categoryData) {
         return {
             title: 'Category Not Found',
         };
     }
 
     return {
-        title: `${category.name} | Blog`,
-        description: category.description,
+        title: `${categoryData.name} | Blog`,
+        description: categoryData.description,
         openGraph: {
-            title: `${category.name} | Blog`,
-            description: category.description,
+            title: `${categoryData.name} | Blog`,
+            description: categoryData.description,
             type: 'website',
-            url: `/blog/${category.slug}`,
-            images: category.coverImage ? [{ url: category.coverImage }] : undefined,
+            url: `/blog/${categoryData.slug}`,
+            images: categoryData.coverImage ? [{ url: categoryData.coverImage }] : undefined,
         },
     };
 }
@@ -50,19 +51,20 @@ export async function generateStaticParams() {
 }
 
 export default async function CategoryPage({ params, searchParams }: PageProps) {
+    const { category } = await params;
     const categories = getAllCategories();
-    const category = categories.find(cat => cat.slug === params.category);
+    const categoryData = categories.find(cat => cat.slug === category);
 
     // Check if category exists
-    if (!category) {
+    if (!categoryData) {
         notFound();
     }
 
     // Ensure searchParams is properly awaited
-    const page = searchParams?.page;
-    const currentPage = page ? parseInt(page) : 1;
+    const page = searchParams ? await searchParams : undefined;
+    const currentPage = page?.page ? parseInt(page.page) : 1;
 
-    const posts = getPostsByCategory(params.category as CategorySlug);
+    const posts = getPostsByCategory(category as CategorySlug);
 
     // Implement pagination
     const totalPosts = posts.length;
@@ -75,9 +77,9 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
     return (
         <div className="container mx-auto px-4 py-12">
             <header className="mb-12 text-center">
-                <h1 className="text-4xl font-bold mb-4">{category.name}</h1>
+                <h1 className="text-4xl font-bold mb-4">{categoryData.name}</h1>
                 <p className="text-xl text-gray-600">
-                    {category.description}
+                    {categoryData.description}
                 </p>
             </header>
 
@@ -87,7 +89,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                     <Pagination
                         currentPage={currentPage}
                         totalPages={totalPages}
-                        baseUrl={`/blog/${params.category}`}
+                        baseUrl={`/blog/${category}`}
                     />
                 </div>
 

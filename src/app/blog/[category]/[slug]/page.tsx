@@ -7,16 +7,19 @@ import { getAllPosts } from '../../lib/getAllPosts';
 import { getAllCategories } from '../../lib/getAllCategories';
 import Sidebar from '../../components/Sidebar';
 
-interface PageProps {
-    params: {
-        category: string;
-        slug: string;
-    };
+type PageProps = {
+    params: Promise<{ category: string; slug: string }>;
+    searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 // Generate metadata for the post page
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const post = await getPostBySlug(params.slug);
+export async function generateMetadata(
+    { params }: PageProps
+): Promise<Metadata> {
+    // read route params
+    const { slug } = await params;
+
+    const post = await getPostBySlug(slug);
 
     if (!post) {
         return {
@@ -54,19 +57,22 @@ export async function generateStaticParams() {
 }
 
 export default async function PostPage({ params }: PageProps) {
+    // Read route params
+    const { category, slug } = await params;
+
     // Validate that category exists
     const categories = getAllCategories();
-    const categoryExists = categories.some(cat => cat.slug === params.category);
+    const categoryExists = categories.some(cat => cat.slug === category);
 
     if (!categoryExists) {
         notFound();
     }
 
     // Get post data
-    const post = await getPostBySlug(params.slug);
+    const post = await getPostBySlug(slug);
 
     // Validate post exists and belongs to the specified category
-    if (!post || post.category !== params.category) {
+    if (!post || post.category !== category) {
         notFound();
     }
 
@@ -76,7 +82,7 @@ export default async function PostPage({ params }: PageProps) {
         year: 'numeric',
     });
 
-    const category = categories.find(cat => cat.slug === post.category);
+    const categoryData = categories.find(cat => cat.slug === post.category);
 
     return (
         <div className="container mx-auto px-4 py-12">
@@ -103,7 +109,7 @@ export default async function PostPage({ params }: PageProps) {
                                         href={`/blog/${post.category}`}
                                         className="inline-block bg-gray-100 px-3 py-1 text-sm rounded-full text-gray-800 hover:bg-gray-200"
                                     >
-                                        {category?.name || post.category}
+                                        {categoryData?.name || post.category}
                                     </Link>
                                     <time className="text-sm text-gray-500 ml-2">{formattedDate}</time>
                                     <span className="text-sm text-gray-500 ml-4">
