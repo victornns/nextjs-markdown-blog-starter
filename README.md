@@ -1,13 +1,15 @@
 # nextjs-markdown-blog-starter
 
-A minimal, scalable, and SEO-focused blog starter built with Next.js 15, Markdown, and TypeScript — designed collaboratively with AI (Claude 3.7 Sonnet) to explore intelligent architecture planning.
+A scalable, high-performance, and SEO-focused blog starter powered by Next.js 15, Markdown, and TypeScript — designed collaboratively with AI (Claude 3.7 Sonnet) to explore intelligent architecture planning.
+
+![Preview](./public/demo-preview.gif)
 
 ---
 
 ## 📌 About the project
 
-A boilerplate for building static blogs with modern architecture using Next.js 15, Markdown, and TypeScript.  
-Designed to be minimal, modular, and scalable — with built-in support for categories, pagination, SEO, and future API integration.
+A boilerplate for building modern blogs with a static generation strategy (SSG) using Next.js 15, Markdown, and TypeScript.  
+Designed to be modular, scalable, and production-ready — with built-in support for categories, pagination, SEO, styling, and future API integration.
 
 ---
 
@@ -25,13 +27,22 @@ Key decisions supported by AI:
 
 ## ⚙️ Technologies used
 
+**Core Stack:**
 - [Next.js 15](https://nextjs.org/)
 - App Router
 - Markdown (`.md`)
 - TypeScript
+
+**Styling:**
+- [Tailwind CSS](https://tailwindcss.com/)
+- SCSS (Sass)
+
+**Utilities:**
 - `gray-matter` (frontmatter parsing)
 - `remark` or `rehype` (Markdown to HTML conversion)
-- Dynamic SEO
+
+**Others:**
+- Dynamic SEO with `generateMetadata`
 - Modular TypeScript structure
 - Docker and Docker Compose (optional)
 
@@ -75,6 +86,14 @@ npm start
 ```bash
 docker-compose up prod
 ```
+
+---
+
+## 🪄 Minimal setup (branch: `feat/minimal-setup`)
+
+If you're looking for a lightweight base with only the essential files and no extras like Docker, README or config templates, check out the [`feat/minimal-setup`](https://github.com/victornns/nextjs-markdown-blog-starter/tree/feat/minimal-setup) branch.
+
+It’s ideal for kickstarting your own custom blog structure.
 
 ---
 
