@@ -10,5 +10,29 @@
         "name": "Performance",
         "description": "Website optimization",
         "coverImage": "https://dummyimage.com/800x600/D35746/ffffff&text=Performance"
+    },
+    {
+        "slug": "development",
+        "name": "Development",
+        "description": "Programming tips and techniques",
+        "coverImage": "https://dummyimage.com/800x600/2E7D32/ffffff&text=Development"
+    },
+    {
+        "slug": "javascript",
+        "name": "JavaScript",
+        "description": "All about JavaScript and frameworks",
+        "coverImage": "https://dummyimage.com/800x600/F0DB4F/333333&text=JavaScript"
+    },
+    {
+        "slug": "cloud",
+        "name": "Cloud",
+        "description": "Cloud computing and serverless",
+        "coverImage": "https://dummyimage.com/800x600/0288D1/ffffff&text=Cloud"
+    },
+    {
+        "slug": "tools",
+        "name": "Tools",
+        "description": "Useful tools and resources",
+        "coverImage": "https://dummyimage.com/800x600/6A1B9A/ffffff&text=Tools"
     }
 ]
