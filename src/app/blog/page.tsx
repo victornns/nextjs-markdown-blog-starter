@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { getAllPosts } from './_lib/getAllPosts';
+import { blogRepository } from './_lib/blogRepository';
 import PostList from './_components/PostList';
 import Pagination from './_components/Pagination';
 import Sidebar from './_components/Sidebar';
@@ -26,7 +26,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
     const params = await searchParams;
     const page = params?.page;
     const currentPage = page ? parseInt(page) : 1;
-    const allPosts = getAllPosts();
+    const allPosts = blogRepository.getAll();
 
     // Implement pagination
     const totalPosts = allPosts.length;

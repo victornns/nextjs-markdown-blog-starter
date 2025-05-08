@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { getAllCategories } from '../_lib/getAllCategories';
+import { blogRepository } from '../_lib/blogRepository';
 
 export default function Sidebar() {
-    const categories = getAllCategories();
+    const categories = blogRepository.getCategories();
 
     return (
         <aside className="space-y-8">

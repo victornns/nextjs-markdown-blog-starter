@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getPostsByCategory } from '../_lib/getPostsByCategory';
-import { getAllCategories } from '../_lib/getAllCategories';
+import { blogRepository } from '../_lib/blogRepository';
 import { CategorySlug } from '../_types/category';
 import PostList from '../_components/PostList';
 import Pagination from '../_components/Pagination';
@@ -19,7 +18,7 @@ export async function generateMetadata(
     { params }: PageProps
 ): Promise<Metadata> {
     const { category } = await params;
-    const categories = getAllCategories();
+    const categories = blogRepository.getCategories();
     const categoryData = categories.find(cat => cat.slug === category);
 
     if (!categoryData) {
@@ -43,7 +42,7 @@ export async function generateMetadata(
 
 // Generate static paths for all categories
 export async function generateStaticParams() {
-    const categories = getAllCategories();
+    const categories = blogRepository.getCategories();
 
     return categories.map((category) => ({
         category: category.slug,
@@ -52,7 +51,7 @@ export async function generateStaticParams() {
 
 export default async function CategoryPage({ params, searchParams }: PageProps) {
     const { category } = await params;
-    const categories = getAllCategories();
+    const categories = blogRepository.getCategories();
     const categoryData = categories.find(cat => cat.slug === category);
 
     // Check if category exists
@@ -64,7 +63,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
     const page = searchParams ? await searchParams : undefined;
     const currentPage = page?.page ? parseInt(page.page) : 1;
 
-    const posts = getPostsByCategory(category as CategorySlug);
+    const posts = blogRepository.getByCategory(category as CategorySlug);
 
     // Implement pagination
     const totalPosts = posts.length;

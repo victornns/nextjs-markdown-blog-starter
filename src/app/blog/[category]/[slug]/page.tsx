@@ -2,9 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getPostBySlug } from '../../_lib/getPostBySlug';
-import { getAllPosts } from '../../_lib/getAllPosts';
-import { getAllCategories } from '../../_lib/getAllCategories';
+import { blogRepository } from '../../_lib/blogRepository';
 import Sidebar from '../../_components/Sidebar';
 
 type PageProps = {
@@ -19,7 +17,7 @@ export async function generateMetadata(
     // read route params
     const { slug } = await params;
 
-    const post = await getPostBySlug(slug);
+    const post = await blogRepository.getPost(slug);
 
     if (!post) {
         return {
@@ -48,7 +46,7 @@ export async function generateMetadata(
 
 // Generate static paths for all posts
 export async function generateStaticParams() {
-    const posts = getAllPosts();
+    const posts = blogRepository.getAll();
 
     return posts.map((post) => ({
         category: post.category,
@@ -61,7 +59,7 @@ export default async function PostPage({ params }: PageProps) {
     const { category, slug } = await params;
 
     // Validate that category exists
-    const categories = getAllCategories();
+    const categories = blogRepository.getCategories();
     const categoryExists = categories.some(cat => cat.slug === category);
 
     if (!categoryExists) {
@@ -69,7 +67,7 @@ export default async function PostPage({ params }: PageProps) {
     }
 
     // Get post data
-    const post = await getPostBySlug(slug);
+    const post = await blogRepository.getPost(slug);
 
     // Validate post exists and belongs to the specified category
     if (!post || post.category !== category) {
