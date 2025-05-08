@@ -1,6 +1,6 @@
 import { remark } from 'remark';
 import html from 'remark-html';
-import { PostWithHtml } from '../types/post';
+import { PostWithHtml } from '../_types/post';
 import { getAllPosts } from './getAllPosts';
 
 export async function getPostBySlug(slug: string): Promise<PostWithHtml | null> {

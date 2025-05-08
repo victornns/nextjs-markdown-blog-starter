@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getPostsByCategory } from '../lib/getPostsByCategory';
-import { getAllCategories } from '../lib/getAllCategories';
-import { CategorySlug } from '../types/category';
-import PostList from '../components/PostList';
-import Pagination from '../components/Pagination';
-import Sidebar from '../components/Sidebar';
+import { getPostsByCategory } from '../_lib/getPostsByCategory';
+import { getAllCategories } from '../_lib/getAllCategories';
+import { CategorySlug } from '../_types/category';
+import PostList from '../_components/PostList';
+import Pagination from '../_components/Pagination';
+import Sidebar from '../_components/Sidebar';
 
 type PageProps = {
     params: Promise<{ category: string }>;

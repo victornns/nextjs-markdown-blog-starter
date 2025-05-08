@@ -2,10 +2,10 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getPostBySlug } from '../../lib/getPostBySlug';
-import { getAllPosts } from '../../lib/getAllPosts';
-import { getAllCategories } from '../../lib/getAllCategories';
-import Sidebar from '../../components/Sidebar';
+import { getPostBySlug } from '../../_lib/getPostBySlug';
+import { getAllPosts } from '../../_lib/getAllPosts';
+import { getAllCategories } from '../../_lib/getAllCategories';
+import Sidebar from '../../_components/Sidebar';
 
 type PageProps = {
     params: Promise<{ category: string; slug: string }>;

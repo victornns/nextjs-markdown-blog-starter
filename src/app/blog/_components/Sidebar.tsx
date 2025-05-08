@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { getAllCategories } from '../lib/getAllCategories';
+import { getAllCategories } from '../_lib/getAllCategories';
 
 export default function Sidebar() {
     const categories = getAllCategories();

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Post } from '../types/post';
-import { getAllCategories } from '../lib/getAllCategories';
+import { Post } from '../_types/post';
+import { getAllCategories } from '../_lib/getAllCategories';
 
 interface PostCardProps {
     post: Post;

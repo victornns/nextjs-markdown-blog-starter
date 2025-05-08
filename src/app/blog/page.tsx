@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
-import { getAllPosts } from './lib/getAllPosts';
-import PostList from './components/PostList';
-import Pagination from './components/Pagination';
-import Sidebar from './components/Sidebar';
+import { getAllPosts } from './_lib/getAllPosts';
+import PostList from './_components/PostList';
+import Pagination from './_components/Pagination';
+import Sidebar from './_components/Sidebar';
 
 export const metadata: Metadata = {
     title: 'Blog | Next.js Markdown Blog',

@@ -1,5 +1,5 @@
-import { CategorySlug } from '../types/category';
-import { Post } from '../types/post';
+import { CategorySlug } from '../_types/category';
+import { Post } from '../_types/post';
 import { getAllPosts } from './getAllPosts';
 
 export function getPostsByCategory(categorySlug: CategorySlug): Post[] {
