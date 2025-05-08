@@ -55,7 +55,7 @@ Images often account for the largest portion of a webpage's size. Optimize them 
   srcset="image-small.webp 400w, image-medium.webp 800w, image-large.webp 1200w"
   sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px"
   loading="lazy"
-  alt="Description"
+  alt="Mountain landscape with snow-capped peaks"
 />
 ```
 

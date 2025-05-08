@@ -146,17 +146,17 @@ Ensure text has sufficient contrast against its background:
 Provide descriptive alt text for images that convey information:
 
 ```html
-<!-- Informational image -->
-<img src="chart-q2-sales.png" alt="Bar chart showing Q2 sales increased 27% year-over-year">
+<!-- Informational image - focus on content and function, not that it's a "chart" -->
+<img src="chart-q2-sales.png" alt="Q2 sales increased 27% year-over-year">
 
-<!-- Decorative image -->
+<!-- Decorative image - empty alt attribute -->
 <img src="decorative-line.png" alt="">
 
-<!-- Complex image with extended description -->
+<!-- Complex image with extended description - avoid redundant text -->
 <figure>
-  <img src="complex-diagram.png" alt="Network architecture diagram" aria-describedby="diagram-desc">
+  <img src="complex-diagram.png" alt="Network architecture" aria-describedby="diagram-desc">
   <figcaption id="diagram-desc">
-    Diagram shows three-tier architecture with web servers connecting to application servers 
+    Three-tier architecture with web servers connecting to application servers 
     and database servers through a load balancer.
   </figcaption>
 </figure>

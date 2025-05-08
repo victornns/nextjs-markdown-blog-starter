@@ -259,7 +259,7 @@ function OptimizedImage({ src, alt, ...props }) {
   return (
     <img
       src={src}
-      alt={alt}
+      alt={alt} // Pass descriptive alt text that conveys the image's purpose
       loading="lazy"
       decoding="async"
       {...props}
@@ -277,7 +277,7 @@ function MoviePoster({ movie }) {
   return (
     <Image
       src={movie.poster}
-      alt={movie.title}
+      alt={`${movie.title} (${movie.year})`} // Descriptive alt that provides context without redundancy
       width={300}
       height={450}
       placeholder="blur"

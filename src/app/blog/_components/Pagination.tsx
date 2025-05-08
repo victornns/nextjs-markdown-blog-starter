@@ -43,7 +43,7 @@ export default function Pagination({ currentPage, totalPages, baseUrl }: Paginat
                             Previous
                         </Link>
                     ) : (
-                        <span className="px-4 py-2 border rounded-md text-gray-300 cursor-not-allowed">
+                        <span className="px-4 py-2 border rounded-md text-gray-500 cursor-not-allowed">
                             Previous
                         </span>
                     )}
@@ -74,7 +74,7 @@ export default function Pagination({ currentPage, totalPages, baseUrl }: Paginat
                             Next
                         </Link>
                     ) : (
-                        <span className="px-4 py-2 border rounded-md text-gray-300 cursor-not-allowed">
+                        <span className="px-4 py-2 border rounded-md text-gray-500 cursor-not-allowed">
                             Next
                         </span>
                     )}

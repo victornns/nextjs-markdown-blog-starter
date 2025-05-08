@@ -25,7 +25,7 @@ export default function Sidebar() {
                                     <div className="relative w-8 h-8 mr-2 overflow-hidden rounded-full">
                                         <Image
                                             src={category.coverImage}
-                                            alt={category.name}
+                                            alt={'Category image'}
                                             fill
                                             sizes="32px"
                                             className="object-cover"
