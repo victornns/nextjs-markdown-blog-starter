@@ -3,6 +3,7 @@ import { blogRepository } from './_lib/blogRepository';
 import PostList from './_components/PostList';
 import Pagination from './_components/Pagination';
 import Sidebar from './_components/Sidebar';
+import Breadcrumb from './_components/Breadcrumb';
 
 export const metadata: Metadata = {
     title: 'Blog | Next.js Markdown Blog',
@@ -36,6 +37,10 @@ export default async function BlogPage({ searchParams }: PageProps) {
     const endIndex = startIndex + POSTS_PER_PAGE;
     const currentPosts = allPosts.slice(startIndex, endIndex);
 
+    const breadcrumbItems = [
+        { name: 'Blog', href: '/blog', current: true }
+    ];
+
     return (
         <div className="container mx-auto px-4 py-12">
             <header className="mb-12 text-center">
@@ -44,6 +49,8 @@ export default async function BlogPage({ searchParams }: PageProps) {
                     Explore our articles about web development, design, and technology
                 </p>
             </header>
+
+            <Breadcrumb items={breadcrumbItems} />
 
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                 <div className="lg:col-span-3">

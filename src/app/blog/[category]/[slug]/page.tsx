@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { blogRepository } from '../../_lib/blogRepository';
 import Sidebar from '../../_components/Sidebar';
+import Breadcrumb from '../../_components/Breadcrumb';
 
 type PageProps = {
     params: Promise<{ category: string; slug: string }>;
@@ -82,8 +83,16 @@ export default async function PostPage({ params }: PageProps) {
 
     const categoryData = categories.find(cat => cat.slug === post.category);
 
+    const breadcrumbItems = [
+        { name: 'Blog', href: '/blog' },
+        { name: categoryData?.name || category, href: `/blog/${category}` },
+        { name: post.title, href: `/blog/${category}/${slug}`, current: true }
+    ];
+
     return (
         <div className="container mx-auto px-4 py-12">
+            <Breadcrumb items={breadcrumbItems} />
+
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                 <div className="lg:col-span-3">
                     <article className="bg-white rounded-lg shadow-lg overflow-hidden">

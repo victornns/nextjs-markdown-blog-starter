@@ -5,6 +5,7 @@ import { CategorySlug } from '../_types/category';
 import PostList from '../_components/PostList';
 import Pagination from '../_components/Pagination';
 import Sidebar from '../_components/Sidebar';
+import Breadcrumb from '../_components/Breadcrumb';
 
 type PageProps = {
     params: Promise<{ category: string }>;
@@ -73,6 +74,11 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
     const endIndex = startIndex + POSTS_PER_PAGE;
     const currentPosts = posts.slice(startIndex, endIndex);
 
+    const breadcrumbItems = [
+        { name: 'Blog', href: '/blog' },
+        { name: categoryData.name, href: `/blog/${category}`, current: true }
+    ];
+
     return (
         <div className="container mx-auto px-4 py-12">
             <header className="mb-12 text-center">
@@ -81,6 +87,8 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
                     {categoryData.description}
                 </p>
             </header>
+
+            <Breadcrumb items={breadcrumbItems} />
 
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                 <div className="lg:col-span-3">
