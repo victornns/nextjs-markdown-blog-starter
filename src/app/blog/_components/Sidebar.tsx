@@ -22,15 +22,11 @@ export default function Sidebar() {
                                 className="text-gray-700 hover:text-blue-600 flex items-center py-1"
                             >
                                 {category.coverImage && (
-                                    <div className="relative w-8 h-8 mr-2 overflow-hidden rounded-full">
-                                        <Image
-                                            src={category.coverImage}
-                                            alt={'Category image'}
-                                            fill
-                                            sizes="32px"
-                                            className="object-cover"
-                                        />
-                                    </div>
+                                    <div
+                                        className="relative w-8 h-8 mr-2 overflow-hidden rounded-full bg-center bg-no-repeat"
+                                        style={{ backgroundImage: `url(${category.coverImage})` }}
+                                        aria-label={`${category.name} category image`}
+                                    />
                                 )}
                                 {category.name}
                             </Link>
