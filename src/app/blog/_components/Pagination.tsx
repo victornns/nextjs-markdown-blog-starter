@@ -43,7 +43,7 @@ export default function Pagination({ currentPage, totalPages, baseUrl }: Paginat
                             Previous
                         </Link>
                     ) : (
-                        <span className="px-3 py-2 border border-neutral-200 text-sm text-neutral-400 cursor-not-allowed bg-neutral-50">
+                        <span className="px-3 py-2 border border-neutral-200 text-sm text-neutral-600 cursor-not-allowed bg-neutral-50">
                             Previous
                         </span>
                     )}
@@ -74,7 +74,7 @@ export default function Pagination({ currentPage, totalPages, baseUrl }: Paginat
                             Next
                         </Link>
                     ) : (
-                        <span className="px-3 py-2 border border-neutral-200 text-sm text-neutral-400 cursor-not-allowed bg-neutral-50">
+                        <span className="px-3 py-2 border border-neutral-200 text-sm text-neutral-600 cursor-not-allowed bg-neutral-50">
                             Next
                         </span>
                     )}
