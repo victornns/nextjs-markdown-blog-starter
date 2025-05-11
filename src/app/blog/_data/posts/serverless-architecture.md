@@ -5,7 +5,7 @@ slug: "serverless-architecture"
 category: "cloud"
 date: "2025-05-02T08:45:00Z"
 excerpt: "Discover how serverless computing can reduce operational complexity and costs while increasing scalability for your applications."
-coverImage: "https://dummyimage.com/1200x800/0288D1/ffffff&text=Serverless"
+coverImage: "https://dummyimage.com/1200x800/8cabc0/ffffff&text=Serverless"
 seoDescription: "Learn about serverless architecture benefits, challenges, and best practices for building modern cloud-native applications."
 ---
 

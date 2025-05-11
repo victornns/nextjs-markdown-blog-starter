@@ -5,7 +5,7 @@ slug: "cloud-computing-fundamentals"
 category: "cloud"
 date: "2025-04-02T11:30:00Z"
 excerpt: "Explore the fundamental concepts of cloud computing, service models, deployment options, and how businesses can leverage the cloud effectively."
-coverImage: "https://dummyimage.com/1200x800/0288D1/ffffff&text=Cloud+Computing"
+coverImage: "https://dummyimage.com/1200x800/8cabc0/ffffff&text=Cloud+Computing"
 seoDescription: "Learn the basics of cloud computing including IaaS, PaaS, SaaS, public vs private clouds, and key benefits for modern businesses."
 ---
 

@@ -8,14 +8,14 @@ interface PostListProps {
 export default function PostList({ posts }: PostListProps) {
     if (posts.length === 0) {
         return (
-            <div className="text-center py-10">
-                <h2 className="text-xl font-medium text-gray-600">No posts found</h2>
+            <div className="text-center py-16 border border-dashed border-neutral-300 bg-neutral-50">
+                <h2 className="text-lg font-medium text-neutral-600">No posts found</h2>
             </div>
         );
     }
 
     return (
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
             {posts.map((post) => (
                 <PostCard key={post.slug} post={post} />
             ))}

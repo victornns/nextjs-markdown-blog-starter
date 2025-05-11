@@ -90,14 +90,14 @@ export default async function PostPage({ params }: PageProps) {
     ];
 
     return (
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 py-10">
             <Breadcrumb items={breadcrumbItems} />
 
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
                 <div className="lg:col-span-3">
-                    <article className="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <article className="card overflow-hidden">
                         {post.coverImage && (
-                            <div className="relative h-96 w-full">
+                            <div className="relative h-80 w-full">
                                 <Image
                                     src={post.coverImage}
                                     alt={post.title}
@@ -111,56 +111,57 @@ export default async function PostPage({ params }: PageProps) {
 
                         <div className="p-8">
                             <header className="mb-8">
-                                <div className="flex items-center mb-4">
+                                <div className="flex flex-wrap items-center mb-4">
                                     <Link
                                         href={`/blog/${post.category}`}
-                                        className="inline-block bg-gray-100 px-3 py-1 text-sm rounded-full text-gray-800 hover:bg-gray-200"
+                                        className="inline-block bg-primary-50 px-3 py-1 text-xs font-medium text-primary-800 border-l-2 border-primary-600 mr-3"
                                     >
                                         {categoryData?.name || post.category}
                                     </Link>
-                                    <time className="text-sm text-gray-500 ml-2">{formattedDate}</time>
-                                    <span className="text-sm text-gray-500 ml-4">
+                                    <time className="text-xs text-neutral-600 mr-3">{formattedDate}</time>
+                                    <span className="text-xs text-neutral-600">
                                         {post.readingTimeMinutes} min read
                                     </span>
                                 </div>
 
-                                <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-                                <h2 className="text-2xl text-gray-600">{post.subtitle}</h2>
+                                <h1 className="text-3xl sm:text-4xl font-bold mb-3 text-neutral-900">{post.title}</h1>
+                                <div className="w-16 h-1 bg-primary-600 mb-4"></div>
+                                <h2 className="text-xl text-neutral-700">{post.subtitle}</h2>
                             </header>
 
                             <main
-                                className="prose prose-lg max-w-none"
+                                className="prose prose-neutral max-w-none"
                                 dangerouslySetInnerHTML={{ __html: post.htmlContent }}
                             />
 
-                            <footer className="mt-12 pt-8 border-t">
-                                <div className="flex justify-between items-center">
-                                    <Link href="/blog" className="text-blue-600 hover:underline">
+                            <footer className="mt-12 pt-8 border-t border-neutral-200">
+                                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                                    <Link href="/blog" className="text-primary-700 hover:text-primary-800 font-medium">
                                         &larr; Back to all posts
                                     </Link>
 
                                     <div className="flex items-center space-x-4">
-                                        <span className="text-gray-600">Share:</span>
-                                        <a
+                                        <span className="text-neutral-700">Share:</span>
+                                        <Link
                                             href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
                                                 `${process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com'}/blog/${post.category}/${post.slug}`
                                             )}&text=${encodeURIComponent(post.title)}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-gray-600 hover:text-blue-500"
+                                            className="text-neutral-700 hover:text-primary-700 transition-colors"
                                         >
                                             Twitter
-                                        </a>
-                                        <a
+                                        </Link>
+                                        <Link
                                             href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
                                                 `${process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com'}/blog/${post.category}/${post.slug}`
                                             )}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-gray-600 hover:text-blue-600"
+                                            className="text-neutral-700 hover:text-primary-700 transition-colors"
                                         >
                                             Facebook
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             </footer>

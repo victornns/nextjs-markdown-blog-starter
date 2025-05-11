@@ -5,7 +5,7 @@ slug: "modern-javascript-features"
 category: "javascript"
 date: "2025-05-04T10:15:00Z"
 excerpt: "Discover the powerful JavaScript features that can make your code more concise, readable, and maintainable."
-coverImage: "https://dummyimage.com/1200x800/F0DB4F/333333&text=Modern+JavaScript"
+coverImage: "https://dummyimage.com/1200x800/d6c9a3/333333&text=Modern+JavaScript"
 seoDescription: "Learn about essential modern JavaScript features from ES6 and beyond that will help you write cleaner, more efficient code."
 ---
 

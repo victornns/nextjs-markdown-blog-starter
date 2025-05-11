@@ -39,11 +39,11 @@ export default function Pagination({ currentPage, totalPages, baseUrl }: Paginat
                 {/* Previous button */}
                 <li>
                     {prevPageUrl ? (
-                        <Link href={prevPageUrl} className="px-4 py-2 border rounded-md hover:bg-gray-50">
+                        <Link href={prevPageUrl} className="px-3 py-2 border border-neutral-200 text-sm hover:bg-primary-50 text-neutral-800 hover:text-primary-700 transition-colors">
                             Previous
                         </Link>
                     ) : (
-                        <span className="px-4 py-2 border rounded-md text-gray-500 cursor-not-allowed">
+                        <span className="px-3 py-2 border border-neutral-200 text-sm text-neutral-400 cursor-not-allowed bg-neutral-50">
                             Previous
                         </span>
                     )}
@@ -53,13 +53,13 @@ export default function Pagination({ currentPage, totalPages, baseUrl }: Paginat
                 {pageNumbers.map((page) => (
                     <li key={page}>
                         {page === currentPage ? (
-                            <span className="px-4 py-2 border rounded-md bg-blue-50 text-blue-600 font-medium">
+                            <span className="px-3 py-2 border-b-2 border-primary-700 bg-primary-50 text-primary-800 font-medium text-sm">
                                 {page}
                             </span>
                         ) : (
                             <Link
                                 href={page === 1 ? baseUrl : `${baseUrl}?page=${page}`}
-                                className="px-4 py-2 border rounded-md hover:bg-gray-50"
+                                className="px-3 py-2 border border-neutral-200 text-sm hover:bg-primary-50 text-neutral-800 hover:text-primary-700 transition-colors"
                             >
                                 {page}
                             </Link>
@@ -70,11 +70,11 @@ export default function Pagination({ currentPage, totalPages, baseUrl }: Paginat
                 {/* Next button */}
                 <li>
                     {nextPageUrl ? (
-                        <Link href={nextPageUrl} className="px-4 py-2 border rounded-md hover:bg-gray-50">
+                        <Link href={nextPageUrl} className="px-3 py-2 border border-neutral-200 text-sm hover:bg-primary-50 text-neutral-800 hover:text-primary-700 transition-colors">
                             Next
                         </Link>
                     ) : (
-                        <span className="px-4 py-2 border rounded-md text-gray-500 cursor-not-allowed">
+                        <span className="px-3 py-2 border border-neutral-200 text-sm text-neutral-400 cursor-not-allowed bg-neutral-50">
                             Next
                         </span>
                     )}

@@ -3,36 +3,36 @@
         "slug": "design",
         "name": "Design",
         "description": "Posts about UX/UI",
-        "coverImage": "https://dummyimage.com/800x600/4B70A2/ffffff&text=Design"
+        "coverImage": "https://dummyimage.com/800x600/8ca3bc/ffffff&text=Design"
     },
     {
         "slug": "performance",
         "name": "Performance",
         "description": "Website optimization",
-        "coverImage": "https://dummyimage.com/800x600/D35746/ffffff&text=Performance"
+        "coverImage": "https://dummyimage.com/800x600/b38c8c/ffffff&text=Performance"
     },
     {
         "slug": "development",
         "name": "Development",
         "description": "Programming tips and techniques",
-        "coverImage": "https://dummyimage.com/800x600/2E7D32/ffffff&text=Development"
+        "coverImage": "https://dummyimage.com/800x600/7fa394/ffffff&text=Development"
     },
     {
         "slug": "javascript",
         "name": "JavaScript",
         "description": "All about JavaScript and frameworks",
-        "coverImage": "https://dummyimage.com/800x600/F0DB4F/333333&text=JavaScript"
+        "coverImage": "https://dummyimage.com/800x600/d6c9a3/333333&text=JavaScript"
     },
     {
         "slug": "cloud",
         "name": "Cloud",
         "description": "Cloud computing and serverless",
-        "coverImage": "https://dummyimage.com/800x600/0288D1/ffffff&text=Cloud"
+        "coverImage": "https://dummyimage.com/800x600/8cabc0/ffffff&text=Cloud"
     },
     {
         "slug": "tools",
         "name": "Tools",
         "description": "Useful tools and resources",
-        "coverImage": "https://dummyimage.com/800x600/6A1B9A/ffffff&text=Tools"
+        "coverImage": "https://dummyimage.com/800x600/a396b8/ffffff&text=Tools"
     }
 ]

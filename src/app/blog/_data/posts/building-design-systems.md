@@ -5,7 +5,7 @@ slug: "building-design-systems"
 category: "design"
 date: "2025-03-20T09:15:00Z"
 excerpt: "Learn how to create, implement and maintain an effective design system that ensures consistency across your products and accelerates development."
-coverImage: "https://dummyimage.com/1200x800/4B70A2/ffffff&text=Design+Systems"
+coverImage: "https://dummyimage.com/1200x800/8ca3bc/ffffff&text=Design+Systems"
 seoDescription: "A comprehensive guide to creating and maintaining design systems, including component libraries, documentation, governance, and versioning strategies."
 ---
 

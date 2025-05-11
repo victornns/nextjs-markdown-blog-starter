@@ -5,7 +5,7 @@ slug: "react-performance-optimization"
 category: "javascript"
 date: "2025-04-18T14:25:00Z"
 excerpt: "Learn powerful techniques to optimize your React application's performance and provide a smoother user experience."
-coverImage: "https://dummyimage.com/1200x800/F0DB4F/333333&text=React+Performance"
+coverImage: "https://dummyimage.com/1200x800/d6c9a3/333333&text=React+Performance"
 seoDescription: "Essential React performance optimization techniques including code splitting, memoization, virtualization, and state management optimizations."
 ---
 

@@ -5,7 +5,7 @@ slug: "microservices-architecture"
 category: "development"
 date: "2025-04-10T13:15:00Z"
 excerpt: "Explore the benefits, challenges, and best practices of implementing a microservices architecture for modern applications."
-coverImage: "https://dummyimage.com/1200x800/2E7D32/ffffff&text=Microservices"
+coverImage: "https://dummyimage.com/1200x800/7fa394/ffffff&text=Microservices"
 seoDescription: "Learn about microservices architecture, its advantages over monolithic applications, implementation challenges, and practical strategies for success."
 ---
 

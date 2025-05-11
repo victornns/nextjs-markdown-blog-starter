@@ -5,7 +5,7 @@ slug: "typescript-best-practices"
 category: "development"
 date: "2025-05-02T11:20:00Z"
 excerpt: "Explore the latest TypeScript best practices that will help you write cleaner, safer, and more maintainable code."
-coverImage: "https://dummyimage.com/1200x800/2E7D32/ffffff&text=TypeScript"
+coverImage: "https://dummyimage.com/1200x800/7fa394/ffffff&text=TypeScript"
 seoDescription: "Learn essential TypeScript best practices for 2025 including strict type checking, proper interfaces, utility types, and more."
 ---
 

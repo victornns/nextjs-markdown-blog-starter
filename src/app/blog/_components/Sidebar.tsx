@@ -1,43 +1,19 @@
-import Link from 'next/link';
-import Image from 'next/image';
 import { blogRepository } from '../_lib/blogRepository';
+import CategoryList from './CategoryList';
 
 export default function Sidebar() {
     const categories = blogRepository.getCategories();
 
     return (
-        <aside className="space-y-8">
-            <div className="bg-white rounded-lg shadow p-6">
-                <h2 className="text-xl font-semibold mb-4 border-b pb-2">Categories</h2>
-                <ul className="space-y-2">
-                    <li>
-                        <Link href="/blog" className="text-gray-700 hover:text-blue-600 block py-1">
-                            All Posts
-                        </Link>
-                    </li>
-                    {categories.map((category) => (
-                        <li key={category.slug}>
-                            <Link
-                                href={`/blog/${category.slug}`}
-                                className="text-gray-700 hover:text-blue-600 flex items-center py-1"
-                            >
-                                {category.coverImage && (
-                                    <div
-                                        className="relative w-8 h-8 mr-2 overflow-hidden rounded-full bg-center bg-no-repeat"
-                                        style={{ backgroundImage: `url(${category.coverImage})` }}
-                                        aria-label={`${category.name} category image`}
-                                    />
-                                )}
-                                {category.name}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+        <aside className="space-y-6">
+            <div className="card p-5">
+                <h2 className="text-lg font-semibold mb-4 pb-2 border-b border-neutral-200 text-neutral-800">Categories</h2>
+                <CategoryList categories={categories} />
             </div>
 
-            <div className="bg-white rounded-lg shadow p-6">
-                <h2 className="text-xl font-semibold mb-4 border-b pb-2">About</h2>
-                <p className="text-gray-600">
+            <div className="card p-5">
+                <h2 className="text-lg font-semibold mb-4 pb-2 border-b border-neutral-200 text-neutral-800">About</h2>
+                <p className="text-neutral-600 text-sm leading-relaxed">
                     Welcome to our blog where we share insights about web development,
                     design, and the latest tech trends.
                 </p>

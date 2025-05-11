@@ -5,7 +5,7 @@ slug: "testing-best-practices"
 category: "development"
 date: "2025-03-28T14:45:00Z"
 excerpt: "Discover essential testing strategies and practices to ensure your applications are reliable, maintainable, and bug-free."
-coverImage: "https://dummyimage.com/1200x800/2E7D32/ffffff&text=Testing"
+coverImage: "https://dummyimage.com/1200x800/7fa394/ffffff&text=Testing"
 seoDescription: "Learn modern testing best practices including test pyramids, TDD, BDD, mocking strategies, and how to build effective test suites for your applications."
 ---
 

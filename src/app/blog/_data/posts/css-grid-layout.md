@@ -5,7 +5,7 @@ slug: "css-grid-layout"
 category: "design"
 date: "2025-05-03T14:20:00Z"
 excerpt: "Learn how to use CSS Grid to create complex and responsive layouts with minimal effort."
-coverImage: "https://dummyimage.com/1200x800/4B70A2/ffffff&text=CSS+Grid"
+coverImage: "https://dummyimage.com/1200x800/8ca3bc/ffffff&text=CSS+Grid"
 seoDescription: "A comprehensive guide to CSS Grid Layout for creating responsive website designs with clean, maintainable code."
 ---
 
