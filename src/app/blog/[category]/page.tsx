@@ -81,7 +81,7 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
     <>
       <div className="container py-14">
         <div>
-          <span className="text-sm uppercase font-medium text-gray-600">{categoryData.name}</span>
+          <span className="text-sm uppercase font-medium text-gray-500">{categoryData.name}</span>
           <h1 className="text-4xl font-bold mb-6">Últimos Artigos</h1>
         </div>
 

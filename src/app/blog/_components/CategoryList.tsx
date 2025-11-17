@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CategoryWithPosts } from "../_types/categoryWithPosts";
-import { PrimaryToggleItem } from "./toggleItem/PrimaryToggleItem";
+import { ToggleItem } from "./ToggleItem";
 
 interface CategoryListProps {
   data: CategoryWithPosts[];
@@ -21,20 +21,19 @@ export default function CategoryList({ data }: CategoryListProps) {
     <div className="">
       <div className="flex flex-row sm:items-center gap-2 justify-between mb-4">
         <p>Categorias</p>
-        <Link href="/blog" className={`${pathname === "/blog" ? "hidden" : ""} uppercase text-[#979797] underline text-xs font-medium`}>
+        <Link href="/blog" className={`${pathname === "/blog" ? "hidden" : ""} uppercase text-gray-500 underline text-xs font-medium`}>
           Ver todos
         </Link>
       </div>
 
       <div>
         {data.map((category) => (
-          <PrimaryToggleItem
+          <ToggleItem
             key={category.slug}
             title={category.name}
-            slim
             accordionProps={{
               disabled: pathname === `/blog/${category.slug}` ? true : false,
-              defaultValue: isSubpathButNotExact(`/blog/${category.slug}`, pathname) ? "item-1" : undefined,
+              defaultValue: isSubpathButNotExact(`/blog/${category.slug}`, pathname) ? "toggle-content" : undefined,
             }}
           >
             {category.coverImage && <div className="" style={{ backgroundImage: `url(${category.coverImage})` }} aria-label={`${category.name} category image`} />}
@@ -46,21 +45,19 @@ export default function CategoryList({ data }: CategoryListProps) {
                   <li key={post.slug} className={`list-none mb-1`}>
                     <Link
                       href={`/blog/${category.slug}/${post.slug}`}
-                      className={`
-                                                ${pathname === `/blog/${category.slug}/${post.slug}` ? "pointer-events-none text-[#9A9A9A]" : "text-[#171B3D] font-semibold"} 
-                                                text-base relative before:content-['>'] before:absolute before:-left-4 before:top-0 before:font-semibold`}
+                      className={`${pathname === `/blog/${category.slug}/${post.slug}` ? "pointer-events-none text-[#9A9A9A]" : "text-[#171B3D] font-semibold"} text-base relative before:content-['>'] before:absolute before:-left-4 before:top-0 before:font-semibold`}
                     >
                       {post.title}
                     </Link>
                   </li>
                 ))}
 
-                <Link href={`/blog/${category.slug}`} className={`${pathname === `/blog/${category.slug}` ? "hidden" : ""} mt-4 block uppercase text-[#979797] underline text-xs font-medium`}>
+                <Link href={`/blog/${category.slug}`} className={`${pathname === `/blog/${category.slug}` ? "hidden" : ""} mt-4 block uppercase text-gray-500 underline text-xs font-medium`}>
                   Ver todos
                 </Link>
               </ul>
             )}
-          </PrimaryToggleItem>
+          </ToggleItem>
         ))}
       </div>
     </div>

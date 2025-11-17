@@ -5,7 +5,8 @@ slug: "o-que-e-ui-ux"
 category: "design"
 date: "2025-04-15T12:00:00Z"
 excerpt: "Learn the fundamentals of UI/UX design and why they are crucial for creating successful digital products."
-coverImage: "https://dummyimage.com/1200x800/8ca3bc/ffffff&text=UI/UX+Design"
+coverImage: "/images/default-cover.png"
+thumbImage: "/images/default-thumb.png"
 seoDescription: "Understand the difference between UI and UX design and why both are essential for creating great digital products."
 ---
 

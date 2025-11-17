@@ -5,7 +5,8 @@ slug: "docker-best-practices"
 category: "tools"
 date: "2025-04-25T15:30:00Z"
 excerpt: "Learn essential Docker best practices to improve security, performance, and developer experience in your containerized applications."
-coverImage: "https://dummyimage.com/1200x800/a396b8/ffffff&text=Docker"
+coverImage: "/images/default-cover.png"
+thumbImage: "/images/default-thumb.png"
 seoDescription: "Discover Docker best practices for better security, smaller images, efficient multi-stage builds, and improved development workflows."
 ---
 

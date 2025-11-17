@@ -5,7 +5,8 @@ slug: "web-performance-optimization"
 category: "performance"
 date: "2025-05-01T09:30:00Z"
 excerpt: "Learn essential techniques to optimize your website's performance and provide a better user experience."
-coverImage: "https://dummyimage.com/1200x800/b38c8c/ffffff&text=Web+Performance"
+coverImage: "/images/default-cover.png"
+thumbImage: "/images/default-thumb.png"
 seoDescription: "Discover practical web performance optimization techniques to improve loading times, Core Web Vitals scores, and user experience."
 ---
 

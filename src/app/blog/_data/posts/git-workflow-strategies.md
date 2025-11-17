@@ -5,7 +5,8 @@ slug: "git-workflow-strategies"
 category: "tools"
 date: "2025-04-20T09:45:00Z"
 excerpt: "Compare different Git workflow strategies like Gitflow, GitHub Flow, and Trunk-Based Development to find what works best for your team."
-coverImage: "https://dummyimage.com/1200x800/a396b8/ffffff&text=Git+Workflows"
+coverImage: "/images/default-cover.png"
+thumbImage: "/images/default-thumb.png"
 seoDescription: "Learn about popular Git workflow strategies including Gitflow, GitHub Flow, Gitlab Flow, and Trunk-Based Development with practical implementation tips."
 ---
 

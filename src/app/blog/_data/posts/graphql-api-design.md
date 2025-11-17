@@ -5,7 +5,8 @@ slug: "graphql-api-design"
 category: "development"
 date: "2025-04-05T10:20:00Z"
 excerpt: "Learn GraphQL API design principles and best practices to create flexible, maintainable, and performant APIs."
-coverImage: "https://dummyimage.com/1200x800/7fa394/ffffff&text=GraphQL"
+coverImage: "/images/default-cover.png"
+thumbImage: "/images/default-thumb.png"
 seoDescription: "A comprehensive guide to GraphQL API design patterns, best practices, performance optimization techniques, and common pitfalls to avoid."
 ---
 

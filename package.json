@@ -22,8 +22,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@radix-ui/react-accordion": "^1.2.12",
-    "@tailwindcss/typography": "^0.5.16",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^7.3.5",
+    "@tailwindcss/typography": "^0.5.19",
     "gray-matter": "^4.0.3",
     "next": "^15.3.1",
     "react": "^19.0.0",

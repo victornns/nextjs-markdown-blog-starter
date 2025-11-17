@@ -5,7 +5,8 @@ slug: "web-accessibility-essentials"
 category: "design"
 date: "2025-04-12T08:30:00Z"
 excerpt: "Learn the essential principles and techniques to make your websites accessible to users of all abilities."
-coverImage: "https://dummyimage.com/1200x800/8ca3bc/ffffff&text=Web+Accessibility"
+coverImage: "/images/default-cover.png"
+thumbImage: "/images/default-thumb.png"
 seoDescription: "Comprehensive guide to web accessibility principles, WCAG guidelines, ARIA roles, and practical techniques for building inclusive websites."
 ---
 

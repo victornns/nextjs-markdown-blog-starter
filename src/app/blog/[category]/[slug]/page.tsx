@@ -103,7 +103,7 @@ export default async function PostPage({ params }: PageProps) {
             {/* reading time */}
             <div className="flex flex-row gap-2 items-center">
               <time className="text-xs">{formattedDate}</time>
-              <span className="text-[#D9D9D9]">•</span>
+              <span className="text-gray-400">•</span>
               <span className="text-xs">
                 {post.readingTimeMinutes} {post.readingTimeMinutes > 1 ? "minutos" : "minuto"} de leitura
               </span>
@@ -113,13 +113,12 @@ export default async function PostPage({ params }: PageProps) {
       </header>
 
       {post.coverImage && (
-        <section className="no-padding mt-14">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={post.coverImage} alt={post.title} className="mx-auto" />
-        </section>
+        <div className="container">
+          <section className="no-padding mt-14 w-full h-[500px] bg-center bg-no-repeat" style={{ backgroundImage: `url(${post.coverImage})` }}></section>
+        </div>
       )}
 
-      <div className="container py-14 xl:py-20">
+      <div className="container py-16">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-10">
           <div className="lg:col-span-3">
             <article className="prose prose-neutral max-w-none prose-headings:font-semibold prose-img:rounded-sm" dangerouslySetInnerHTML={{ __html: post.htmlContent }} />
