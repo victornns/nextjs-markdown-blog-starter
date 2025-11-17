@@ -1,8 +1,8 @@
-export type CategorySlug = 'educacao-financeira' | 'financiamento-veiculos' | 'credito-pessoa-fisica' | 'credito-empresas' | 'futuro' | 'relacao-investidores' | 'institucional';
+export type CategorySlug = "design" | "performance" | "development" | "javascript" | "cloud" | "tools";
 
 export interface Category {
-    slug: CategorySlug;
-    name: string;
-    description: string;
-    coverImage?: string;
+  slug: CategorySlug;
+  name: string;
+  description: string;
+  coverImage?: string;
 }
