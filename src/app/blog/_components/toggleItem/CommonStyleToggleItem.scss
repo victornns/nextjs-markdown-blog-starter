@@ -1,0 +1,44 @@
+// Base styles for potential props elements that may be added in the future in children components
+.common-style-toggle-item-children-components {
+    @apply text-sm sm:text-base xl:text-lg;
+
+    ul,
+    ol {
+        @apply mb-3 list-disc pl-6;
+    }
+
+    // Link with icon
+    a.icon,
+    .link.icon {
+        @apply underline inline-flex items-center;
+
+        &::after {
+            @apply inline-block w-screen max-w-5 h-screen max-h-5 content-[attr(before)] ml-3;
+            @apply bg-[url('/images/icons/icon-arrow-button.svg')] bg-contain bg-no-repeat;
+        }
+    }
+
+    .button {
+        @apply mb-2 first-of-type:mt-10 lg:first-of-type:mt-14;
+        @apply mr-2 last-of-type:mr-0;
+    }
+
+    li {
+        &::marker {
+            @apply text-xs;
+        }
+    }
+
+    a,
+    .link {
+        @apply underline;
+    }
+
+    .group-links {
+        @apply flex flex-col gap-3 mt-10 mb-2;
+    }
+
+    .content-block {
+        @apply mb-6;
+    }
+}

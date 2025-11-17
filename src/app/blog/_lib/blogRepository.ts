@@ -1,5 +1,6 @@
 import { CategorySlug, Category } from '../_types/category';
 import { Post, PostWithHtml } from '../_types/post';
+import { CategoryWithPosts } from '../_types/categoryWithPosts';
 import { getAllPosts } from './getAllPosts';
 import { getPostBySlug as fetchPostBySlug } from './getPostBySlug';
 import { getPostsByCategory as fetchPostsByCategory } from './getPostsByCategory';
@@ -37,5 +38,25 @@ export const blogRepository = {
      */
     getCategories(): Category[] {
         return fetchAllCategories();
+    },
+
+    /**
+     * Get all categories with their most recent posts
+     * @param recentPostsCount Number of recent posts to include for each category
+     */
+    getCategoriesWithRecentPosts(recentPostsCount = 3): CategoryWithPosts[] {
+        const categories = fetchAllCategories();
+        return categories.map(category => {
+            const posts = fetchPostsByCategory(category.slug);
+            // Sort by date (newest first) and take only the specified number of posts
+            const recentPosts = posts
+                .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+                .slice(0, recentPostsCount);
+
+            return {
+                ...category,
+                recentPosts
+            };
+        });
     }
 };

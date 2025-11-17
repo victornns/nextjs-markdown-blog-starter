@@ -1,0 +1,97 @@
+$bgColor: #F6F6F6;
+$bgColorExpanded: #FFFFFF;
+
+$marginBottom: 10px;
+$marginBottomExpanded: 22px;
+
+$boxShadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+// Base accordion styles
+.primary-toggle-item {
+    background-color: $bgColor;
+    margin-bottom: $marginBottom;
+    box-shadow: $boxShadow;
+    transition: background-color 350ms;
+
+    @apply rounded-[14px] xl:rounded-[18px];
+    @apply p-1 sm:p-2 md:p-3 xl:py-4 xl:px-6;
+
+    // Expanded state
+    &[data-state="open"] {
+        background-color: $bgColorExpanded;
+        margin-bottom: $marginBottomExpanded;
+    }
+
+    // Disabled state
+    &[data-disabled] {
+        background-color: $bgColor !important;
+    }
+
+    // Slim variant
+    &.slim {
+        @apply px-2 py-0 rounded-sm !important;
+
+        .primary-toggle-item__title {
+            @apply sm:text-lg !important;
+        }
+
+        .accordion-chevron {
+            @apply w-[22px] h-[22px] !important;
+        }
+    }
+}
+
+// Accordion trigger (header/summary)
+.accordion-trigger {
+    @apply w-full flex items-center justify-between;
+    @apply bg-transparent border-0 p-0 cursor-pointer;
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500;
+
+    .primary-toggle-item__title {
+        @apply text-base sm:text-lg md:text-xl lg:text-2xl m-0 text-left;
+    }
+
+    // Chevron rotation animation
+    .accordion-chevron {
+        transition: transform 300ms cubic-bezier(0.87, 0, 0.13, 1);
+        
+        [data-state="open"] & {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+// Accordion content
+.accordion-content {
+    overflow: hidden;
+
+    &[data-state="open"] {
+        animation: slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1);
+    }
+
+    &[data-state="closed"] {
+        animation: slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1);
+    }
+}
+
+// Animations
+@keyframes slideDown {
+    from {
+        height: 0;
+    }
+    to {
+        height: var(--radix-accordion-content-height);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        height: var(--radix-accordion-content-height);
+    }
+    to {
+        height: 0;
+    }
+}
+
+// Override common styles for CommonStyleToggleItem.scss
+.common-style-toggle-item-children-components.primary {}

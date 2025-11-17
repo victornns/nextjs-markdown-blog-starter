@@ -8,6 +8,7 @@ export interface PostFrontmatter {
     date: string;
     excerpt: string;
     coverImage?: string;
+    thumbImage?: string;
     seoDescription?: string;
 }
 

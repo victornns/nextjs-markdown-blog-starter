@@ -1,0 +1,21 @@
+.SwiperComponent {
+    .swiper-pagination-bullet {
+        background-color: rgba(91, 91, 91, 1);
+        width: 12px;
+        height: 12px;
+    }
+
+    .swiper-pagination {
+        position: relative;
+        bottom: 0;
+        margin-top: 25px;
+
+        @media screen and (min-width: 640px) {
+            margin-top: 50px;
+        }
+    }
+
+    .swiper-wrapper {
+        @apply justify-start;
+    }
+}

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { Post } from '../_types/post';
 import { getAllCategories } from '../_lib/getAllCategories';
@@ -11,43 +10,39 @@ export default function PostCard({ post }: PostCardProps) {
     const categories = getAllCategories();
     const category = categories.find(cat => cat.slug === post.category);
 
-    const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+    const formattedDate = new Date(post.date).toLocaleDateString('pt-BR', {
         day: 'numeric',
         month: 'long',
         year: 'numeric',
     });
 
     return (
-        <article className="card overflow-hidden border-b-2 border-b-primary-600 hover:shadow-md transition-shadow duration-300">
-            <Link href={`/blog/${post.category}/${post.slug}`}>
-                <div className="relative h-48 w-full">
-                    {post.coverImage ? (
-                        <Image
-                            src={post.coverImage}
-                            alt={post.title}
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            className="object-cover"
-                            priority
-                        />
-                    ) : (
-                        <div className="h-full w-full bg-neutral-100 flex items-center justify-center">
-                            <span className="text-neutral-600">No image</span>
-                        </div>
-                    )}
+        <article className="overflow-hidden hover:shadow-md transition-all duration-300 mb-10 last-of-type:mb-0 opacity-95 hover:opacity-100">
+            <Link href={`/blog/${post.category}/${post.slug}`} className='flex flex-col xl:flex-row'>
+                <div
+                    className={`relative h-[300px] w-full max-w-[325px] bg-[#f6f6f6]`}
+                    style={post.thumbImage ? {
+                        backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 60%), url(${post.thumbImage})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                    } : {}}
+                >
+                    <span className='absolute bottom-4 left-3 bg-[#171B3D] uppercase text-white text-xs px-3 py-2 font-medium tracking-[4px] overflow-hidden'>
+                        {category?.name || post.category}
+                    </span>
                 </div>
 
-                <div className="p-5">
-                    <div className="flex items-center justify-between mb-3">
-                        <span className="inline-block bg-primary-50 px-3 py-1 text-xs font-medium text-primary-800 border-l-2 border-primary-600">
-                            {category?.name || post.category}
-                        </span>
-                        <time className="text-xs text-neutral-600">{formattedDate}</time>
-                    </div>
+                <div className="w-full py-4 px-2 xl:px-10 flex flex-col">
+                    <time className='text-xs'>{formattedDate}</time>
+                    <h3 className="text-3xl font-light mt-4 mb-6">{post.title}</h3>
+                    <p className="md:text-lg">{post.excerpt}</p>
 
-                    <h2 className="text-xl font-semibold mb-2 text-neutral-900">{post.title}</h2>
-                    <p className="text-neutral-700 mb-3 text-sm">{post.subtitle}</p>
-                    <p className="text-neutral-800 text-sm leading-relaxed">{post.excerpt}</p>
+                    <div className='flex flex-row gap-10 items-center mt-auto'>
+                        <div className='w-full h-[1px] bg-[#dadada]' />
+                        <div className='flex items-center justify-center w-full max-w-12 h-12 bg-[#171B3D]'>
+                            <span className='text-white font-extrabold text-3xl'>{'>'}</span>
+                        </div>
+                    </div>
                 </div>
             </Link>
         </article>
