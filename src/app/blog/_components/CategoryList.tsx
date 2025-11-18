@@ -20,7 +20,7 @@ export default function CategoryList({ data }: CategoryListProps) {
   return (
     <div className="">
       <div className="flex flex-row sm:items-center gap-2 justify-between mb-4">
-        <p>Categorias</p>
+        <p className="font-semibold">Categorias</p>
         <Link href="/blog" className={`${pathname === "/blog" ? "hidden" : ""} uppercase text-gray-500 underline text-xs font-medium`}>
           Ver todos
         </Link>

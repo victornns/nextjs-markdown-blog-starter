@@ -56,6 +56,15 @@ export default async function BlogPage({ searchParams }: PageProps) {
         </div>
 
         <div className="lg:col-span-1">
+          <div className="mb-10">
+            <p className="font-semibold mb-4">About</p>
+            <p>
+              A scalable, high-performance, and SEO-focused blog starter powered by Next.js 15, Markdown, and TypeScript.{" "}
+              <a href="https://github.com/victornns/nextjs-markdown-blog-starter" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-700 underline">
+                View on GitHub
+              </a>
+            </p>
+          </div>
           <Sidebar />
         </div>
       </div>
