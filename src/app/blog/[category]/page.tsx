@@ -79,13 +79,13 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
 
   return (
     <>
-      <div className="container py-14">
-        <div>
-          <span className="text-sm uppercase font-medium text-gray-500">{categoryData.name}</span>
-          <h1 className="text-4xl font-bold mb-6 text-brand">Últimos Artigos</h1>
-        </div>
-
+      <div className="container">
         <Breadcrumb items={breadcrumbItems} />
+
+        <div className="mb-10">
+          <h1 className="text-4xl font-bold">{categoryData.name}</h1>
+          <p className="uppercase text-sm font-medium text-primary mt-2">Últimos Artigos</p>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-10">
           <div className="lg:col-span-3">

@@ -13,7 +13,8 @@ export default {
         sans: ["var(--font-red-hat-display)"],
       },
       colors: {
-        brand: "var(--brand-color)",
+        primary: "var(--primary-color)",
+        secondary: "var(--secondary-color)",
       },
     },
   },

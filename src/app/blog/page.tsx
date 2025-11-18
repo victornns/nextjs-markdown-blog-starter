@@ -41,12 +41,6 @@ export default async function BlogPage({ searchParams }: PageProps) {
 
   return (
     <div className="container mx-auto px-4 py-10">
-      <header className="mb-10 text-center">
-        <h1 className="text-3xl font-bold mb-3 text-brand">Blog</h1>
-        <div className="w-16 h-1 bg-primary-600 mx-auto mb-4"></div>
-        <p className="text-lg text-neutral-700 max-w-2xl mx-auto">Explore our articles about web development, design, and technology</p>
-      </header>
-
       <Breadcrumb items={breadcrumbItems} />
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
@@ -56,10 +50,10 @@ export default async function BlogPage({ searchParams }: PageProps) {
         </div>
 
         <div className="lg:col-span-1">
-          <div className="mb-10">
-            <p className="font-semibold mb-4">About</p>
-            <p>
-              A scalable, high-performance, and SEO-focused blog starter powered by Next.js 15, Markdown, and TypeScript.{" "}
+          <div className="mb-14">
+            <p className="font-semibold uppercase tracking-widest mb-4">About</p>
+            <p className="">
+              <span className="text-lg text-secondary block mb-2">A scalable, high-performance, and SEO-focused blog starter powered by Next.js 15, Markdown, and TypeScript. </span>
               <a href="https://github.com/victornns/nextjs-markdown-blog-starter" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-700 underline">
                 View on GitHub
               </a>

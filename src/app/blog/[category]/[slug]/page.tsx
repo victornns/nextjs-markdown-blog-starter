@@ -90,20 +90,20 @@ export default async function PostPage({ params }: PageProps) {
     <>
       <header>
         <div className="container">
-          <Breadcrumb items={breadcrumbItems} className="!mt-10" />
+          <Breadcrumb items={breadcrumbItems} />
 
-          {post.title && <h1 className="text-4xl font-bold mb-6 text-brand">{post.title}</h1>}
+          {post.title && <h1 className="text-3xl lg:text-5xl xl:text-6xl font-light !leading-tight mb-8 xl:mb-10">{post.title}</h1>}
 
-          <div className="flex flex-col lg:flex-row gap-4 items-center">
+          <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center">
             {/* category label */}
-            <Link href={`/blog/${post.category}`} className="bg-brand uppercase text-white text-base px-6 py-2 font-medium tracking-[4px]">
+            <Link href={`/blog/${post.category}`} className="bg-primary uppercase text-white text-base px-6 py-2 font-medium tracking-[4px]">
               {categoryData?.name || post.category}
             </Link>
 
             {/* reading time */}
             <div className="flex flex-row gap-2 items-center">
               <time className="text-xs">{formattedDate}</time>
-              <span className="text-gray-400">•</span>
+              <span className="text-secondary">•</span>
               <span className="text-xs">
                 {post.readingTimeMinutes} {post.readingTimeMinutes > 1 ? "minutos" : "minuto"} de leitura
               </span>

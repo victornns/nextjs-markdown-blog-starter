@@ -5,7 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #000000;
-  --brand-color: #14183A;
+  --primary-color: #14183A;
+  --secondary-color: #374151;
 }
 
 html {

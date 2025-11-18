@@ -20,8 +20,8 @@ export default function CategoryList({ data }: CategoryListProps) {
   return (
     <div className="">
       <div className="flex flex-row sm:items-center gap-2 justify-between mb-4">
-        <p className="font-semibold">Categorias</p>
-        <Link href="/blog" className={`${pathname === "/blog" ? "hidden" : ""} uppercase text-gray-500 underline text-xs font-medium`}>
+        <p className="font-semibold uppercase tracking-widest">Categorias</p>
+        <Link href="/blog" className={`${pathname === "/blog" ? "hidden" : ""} uppercase text-secondary underline text-xs font-medium`}>
           Ver todos
         </Link>
       </div>
@@ -45,14 +45,14 @@ export default function CategoryList({ data }: CategoryListProps) {
                   <li key={post.slug} className={`list-none mb-2`}>
                     <Link
                       href={`/blog/${category.slug}/${post.slug}`}
-                      className={`${pathname === `/blog/${category.slug}/${post.slug}` ? "pointer-events-none !no-underline text-brand font-semibold" : ""} text-base relative before:content-['>'] before:absolute before:-left-4 before:top-0 before:font-semibold`}
+                      className={`${pathname === `/blog/${category.slug}/${post.slug}` ? "pointer-events-none !no-underline text-primary font-semibold" : ""} text-base relative before:content-['>'] before:absolute before:-left-4 before:top-0 before:font-semibold`}
                     >
                       {post.title}
                     </Link>
                   </li>
                 ))}
 
-                <Link href={`/blog/${category.slug}`} className={`${pathname === `/blog/${category.slug}` ? "hidden" : ""} mt-4 block uppercase text-gray-500 underline text-xs font-medium`}>
+                <Link href={`/blog/${category.slug}`} className={`${pathname === `/blog/${category.slug}` ? "hidden" : ""} mt-4 block uppercase text-secondary underline text-xs font-medium`}>
                   Ver todos
                 </Link>
               </ul>
