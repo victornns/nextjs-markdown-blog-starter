@@ -92,11 +92,11 @@ export default async function PostPage({ params }: PageProps) {
         <div className="container">
           <Breadcrumb items={breadcrumbItems} className="!mt-10" />
 
-          {post.title && <h1 className="text-4xl font-bold mb-6">{post.title}</h1>}
+          {post.title && <h1 className="text-4xl font-bold mb-6 text-brand">{post.title}</h1>}
 
           <div className="flex flex-col lg:flex-row gap-4 items-center">
             {/* category label */}
-            <Link href={`/blog/${post.category}`} className="bg-[#171B3D] uppercase text-white text-base px-6 py-2 font-medium tracking-[4px]">
+            <Link href={`/blog/${post.category}`} className="bg-brand uppercase text-white text-base px-6 py-2 font-medium tracking-[4px]">
               {categoryData?.name || post.category}
             </Link>
 
@@ -121,7 +121,7 @@ export default async function PostPage({ params }: PageProps) {
       <div className="container py-16">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-10">
           <div className="lg:col-span-3">
-            <article className="prose prose-neutral max-w-none prose-headings:font-semibold prose-img:rounded-sm" dangerouslySetInnerHTML={{ __html: post.htmlContent }} />
+            <article className="prose prose-neutral prose-headings:font-semibold max-w-none" dangerouslySetInnerHTML={{ __html: post.htmlContent }} />
           </div>
 
           <div className="lg:col-span-1 mt-10 lg:mt-0">

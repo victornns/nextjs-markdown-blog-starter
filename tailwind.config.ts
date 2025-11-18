@@ -12,6 +12,9 @@ export default {
       fontFamily: {
         sans: ["var(--font-red-hat-display)"],
       },
+      colors: {
+        brand: "var(--brand-color)",
+      },
     },
   },
   plugins: [typography],

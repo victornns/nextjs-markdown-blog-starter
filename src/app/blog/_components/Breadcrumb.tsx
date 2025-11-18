@@ -25,7 +25,7 @@ export default function Breadcrumb({ items, className, ...props }: BreadcrumbPro
           <li key={item.href} className="flex items-center">
             <span className="mx-2 text-neutral-300">/</span>
             {item.current ? (
-              <span className="text-primary-800 font-medium" aria-current="page">
+              <span className="text-brand font-medium" aria-current="page">
                 {item.name}
               </span>
             ) : (

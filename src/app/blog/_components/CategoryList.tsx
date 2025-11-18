@@ -42,10 +42,10 @@ export default function CategoryList({ data }: CategoryListProps) {
             {category.recentPosts && category.recentPosts.length > 0 && (
               <ul className="!pl-5">
                 {category.recentPosts.map((post) => (
-                  <li key={post.slug} className={`list-none mb-1`}>
+                  <li key={post.slug} className={`list-none mb-2`}>
                     <Link
                       href={`/blog/${category.slug}/${post.slug}`}
-                      className={`${pathname === `/blog/${category.slug}/${post.slug}` ? "pointer-events-none text-[#9A9A9A]" : "text-[#171B3D] font-semibold"} text-base relative before:content-['>'] before:absolute before:-left-4 before:top-0 before:font-semibold`}
+                      className={`${pathname === `/blog/${category.slug}/${post.slug}` ? "pointer-events-none !no-underline text-brand font-semibold" : ""} text-base relative before:content-['>'] before:absolute before:-left-4 before:top-0 before:font-semibold`}
                     >
                       {post.title}
                     </Link>
