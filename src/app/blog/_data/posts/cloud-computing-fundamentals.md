@@ -167,7 +167,3 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris bibendum feugiat
 2. **Start small** - Begin with non-critical applications
 3. **Build expertise** - Invest in training and certification
 4. **Develop governance** - Create policies and standards
-
----
-
-[Cloud Provider Comparison](https://aws.amazon.com/compare/)

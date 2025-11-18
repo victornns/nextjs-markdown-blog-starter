@@ -114,7 +114,3 @@ Sed ornare, risus vitae ultricies dapibus, nunc sapien porta elit, eget malesuad
 2. Build microservice for capability
 3. Route requests to new service
 4. Remove from monolith when stable
-
----
-
-[Microservices Patterns](https://microservices.io/)

@@ -63,7 +63,3 @@ Aliquam erat volutpat. Donec nec urna vitae lacus dictum iaculis:
 
 > *"Lorem ipsum dolor sit amet. Serverless allows focusing on business logic rather than infrastructure."*  
 > — Cloud Architecture Guide
-
----
-
-[Serverless Framework](https://www.serverless.com/)

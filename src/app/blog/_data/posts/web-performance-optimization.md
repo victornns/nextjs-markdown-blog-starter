@@ -57,7 +57,3 @@ function App() {
 
 > *"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Performance matters for user experience."*  
 > — Web Performance Guide
-
----
-
-[Performance Docs](https://web.dev/performance)

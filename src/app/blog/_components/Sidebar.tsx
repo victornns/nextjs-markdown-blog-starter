@@ -1,12 +1,14 @@
-import { blogRepository } from '../_lib/blogRepository';
-import CategoryList from './CategoryList';
+import { blogRepository } from "../_lib/blogRepository";
+import { CategoryList } from "./CategoryList";
 
-export default function Sidebar() {
-    const categoriesWithPosts = blogRepository.getCategoriesWithRecentPosts(3);
+const RECENT_POSTS_LIMIT = 3;
 
-    return (
-        <aside>
-            <CategoryList data={categoriesWithPosts} />
-        </aside>
-    );
+export function Sidebar() {
+  const categoriesWithPosts = blogRepository.getCategoriesWithRecentPosts(RECENT_POSTS_LIMIT);
+
+  return (
+    <aside>
+      <CategoryList data={categoriesWithPosts} />
+    </aside>
+  );
 }

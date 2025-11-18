@@ -1,15 +1,14 @@
-function NotFoundPage() {
-    return (<>
-        <section>
-            <div className="container">
-                <div className="flex justify-center text-center my-10">
-                    <h1 className="text-2xl font-bold">
-                        404 - Page not found
-                    </h1>
-                </div>
-            </div>
-        </section>
-    </>)
-}
+import { Breadcrumb } from "./blog/_components/Breadcrumb";
 
-export default NotFoundPage
+export default function NotFoundPage() {
+  const breadcrumbItems = [{ name: "404", href: "/" }];
+
+  return (
+    <section>
+      <div className="container">
+        <Breadcrumb items={breadcrumbItems} />
+        <p>404 - Page not found</p>
+      </div>
+    </section>
+  );
+}

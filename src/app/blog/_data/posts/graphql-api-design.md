@@ -94,7 +94,3 @@ const resolvers = {
 
 > *"Lorem ipsum dolor sit amet. GraphQL's flexibility requires careful design to prevent abuse."*  
 > — API Design Guide
-
----
-
-[GraphQL Best Practices](https://graphql.org/learn/best-practices/)

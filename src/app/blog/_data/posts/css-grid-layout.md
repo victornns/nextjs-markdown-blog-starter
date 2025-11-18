@@ -74,7 +74,3 @@ Aliquam erat volutpat. Donec nec urna vitae lacus:
 
 > *"Lorem ipsum dolor sit amet. CSS Grid revolutionizes web layout design."*  
 > — CSS Grid Guide
-
----
-
-[CSS Grid Guide](https://css-tricks.com/snippets/css/complete-guide-grid/)

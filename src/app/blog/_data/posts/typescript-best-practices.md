@@ -68,7 +68,3 @@ Aliquam erat volutpat. Donec nec urna vitae lacus dictum iaculis:
 
 > *"Lorem ipsum dolor sit amet. TypeScript's power comes from its type system."*  
 > — TypeScript Guide
-
----
-
-[TypeScript Handbook](https://www.typescriptlang.org/docs/)

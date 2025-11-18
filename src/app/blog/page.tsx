@@ -1,9 +1,12 @@
 import { Metadata } from "next";
+
 import { blogRepository } from "./_lib/blogRepository";
-import PostList from "./_components/PostList";
-import Pagination from "./_components/Pagination";
-import Sidebar from "./_components/Sidebar";
-import Breadcrumb from "./_components/Breadcrumb";
+import { Breadcrumb } from "./_components/Breadcrumb";
+import { Pagination } from "./_components/Pagination";
+import { PostList } from "./_components/PostList";
+import { Sidebar } from "./_components/Sidebar";
+import { UITitle } from "./_components/UITitle";
+import { UISubtitle } from "./_components/UISubtitle";
 
 export const metadata: Metadata = {
   title: "Blog | Next.js Markdown Blog",
@@ -23,16 +26,13 @@ interface PageProps {
 const POSTS_PER_PAGE = 9;
 
 export default async function BlogPage({ searchParams }: PageProps) {
-  // Ensure searchParams is properly awaited
   const params = await searchParams;
-  const page = params?.page;
-  const currentPage = page ? parseInt(page) : 1;
+  const currentPage = params?.page ? parseInt(params.page) : 1;
   const allPosts = blogRepository.getAll();
 
-  // Implement pagination
+  // Calculate pagination
   const totalPosts = allPosts.length;
   const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
-
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
   const endIndex = startIndex + POSTS_PER_PAGE;
   const currentPosts = allPosts.slice(startIndex, endIndex);
@@ -40,8 +40,13 @@ export default async function BlogPage({ searchParams }: PageProps) {
   const breadcrumbItems = [{ name: "Blog", href: "/blog", current: true }];
 
   return (
-    <div className="container mx-auto px-4 py-10">
+    <div className="container">
       <Breadcrumb items={breadcrumbItems} />
+
+      <div className="mb-14">
+        <UITitle title={`Blog`} />
+        <UISubtitle>Todos Artigos</UISubtitle>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <div className="lg:col-span-3">
@@ -52,12 +57,12 @@ export default async function BlogPage({ searchParams }: PageProps) {
         <div className="lg:col-span-1">
           <div className="mb-14">
             <p className="font-semibold uppercase tracking-widest mb-4">About</p>
-            <p className="">
-              <span className="text-lg text-secondary block mb-2">A scalable, high-performance, and SEO-focused blog starter powered by Next.js 15, Markdown, and TypeScript. </span>
+            <div>
+              <span className="text-lg text-secondary block mb-2">A scalable, high-performance, and SEO-focused blog starter powered by Next.js 15, Markdown, and TypeScript.</span>
               <a href="https://github.com/victornns/nextjs-markdown-blog-starter" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-700 underline">
                 View on GitHub
               </a>
-            </p>
+            </div>
           </div>
           <Sidebar />
         </div>

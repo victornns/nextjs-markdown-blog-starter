@@ -98,7 +98,3 @@ Ut sed erat nec turpis sollicitudin blandit. Integer rutrum risus non mi vulputa
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus efficitur ex a sem pretium, vel tincidunt tortor luctus. Suspendisse potenti. **Morbi tincidunt, purus eget viverra convallis.**
 
 Sed ornare, risus vitae ultricies dapibus, nunc sapien porta elit, eget malesuada nunc arcu nec libero. Etiam imperdiet tincidunt sapien ut euismod. Sed id eleifend lectus, at feugiat ex.
-
----
-
-[Testing Library Docs](https://testing-library.com/)

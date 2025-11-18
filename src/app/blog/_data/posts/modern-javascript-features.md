@@ -88,7 +88,3 @@ async function fetchUserData() {
 
 > *"Lorem ipsum dolor sit amet. Modern JavaScript features make code more readable and maintainable."*  
 > — JavaScript Guide
-
----
-
-[MDN JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)

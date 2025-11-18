@@ -1,11 +1,11 @@
 import { Post } from "../_types/post";
-import PostCard from "./PostCard";
+import { PostCard } from "./PostCard";
 
 interface PostListProps {
   posts: Post[];
 }
 
-export default function PostList({ posts }: PostListProps) {
+export function PostList({ posts }: PostListProps) {
   if (posts.length === 0) {
     return (
       <div className="text-center py-16 border border-dashed border-neutral-300 bg-neutral-50">

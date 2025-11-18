@@ -1,0 +1,36 @@
+// Design tokens
+$bg-default: #f6f6f6;
+$bg-expanded: #ffffff;
+
+// Toggle item component
+.toggle-item {
+  &.MuiAccordion-root {
+    background-color: $bg-default;
+    @apply shadow-md transition-colors duration-[350ms] mb-2 px-2;
+
+    &::before {
+      @apply hidden;
+    }
+
+    &.Mui-expanded {
+      background-color: $bg-expanded;
+    }
+
+    &.Mui-disabled {
+      background-color: $bg-default;
+    }
+  }
+
+  &__content {
+    @apply [&_a]:underline [&_.link]:underline;
+    
+    a.icon, .link.icon {
+      @apply inline-flex items-center;
+      
+      &::after {
+        content: attr(before);
+        @apply bg-[url('/images/icons/icon-arrow-button.svg')] bg-contain bg-no-repeat w-5 h-5;
+      }
+    }
+  }
+}

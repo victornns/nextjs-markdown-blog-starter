@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { HTMLAttributes } from "react";
 
 interface BreadcrumbItem {
   name: string;
@@ -7,20 +6,20 @@ interface BreadcrumbItem {
   current?: boolean;
 }
 
-interface BreadcrumbProps extends HTMLAttributes<HTMLElement> {
+interface BreadcrumbProps {
   items: BreadcrumbItem[];
+  className?: string;
 }
 
-export default function Breadcrumb({ items, className, ...props }: BreadcrumbProps) {
+export function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
   return (
-    <nav className={`flex mb-0 mt-2 ${className || ""}`} aria-label="Breadcrumb" {...props}>
+    <nav className={`flex mb-6 ${className}`} aria-label="Breadcrumb">
       <ol className="flex items-center flex-wrap text-sm">
         <li className="flex items-center">
           <Link href="/" className="text-secondary hover:text-secondary transition-colors">
             Home
           </Link>
         </li>
-
         {items.map((item) => (
           <li key={item.href} className="flex items-center">
             <span className="mx-2 text-secondary">/</span>

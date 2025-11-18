@@ -116,7 +116,3 @@ HEALTHCHECK --interval=30s --timeout=30s --start-period=5s \
 
 > *"Lorem ipsum dolor sit amet. Docker best practices improve security, efficiency, and maintainability."*  
 > — Container Guide
-
----
-
-[Docker Documentation](https://docs.docker.com/)

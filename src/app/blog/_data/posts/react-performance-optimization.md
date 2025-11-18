@@ -93,7 +93,3 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus efficitur ex a 
 Aliquam erat volutpat. Donec nec urna vitae lacus dictum iaculis. *Mauris bibendum feugiat odio, nec laoreet nisi blandit in.* Pellentesque accumsan lorem nec ipsum ultrices, non convallis justo iaculis.
 
 Ut a tristique risus, id pharetra justo. Proin ac vulputate mauris, vitae faucibus felis. Aliquam sed congue quam, a sagittis nisi. Aenean erat lacus, pulvinar vel pretium id, ullamcorper quis risus.
-
----
-
-[React Performance Docs](https://react.dev/learn/render-and-commit)

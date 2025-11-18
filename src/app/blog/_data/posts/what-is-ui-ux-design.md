@@ -1,7 +1,7 @@
 ---
 title: "What is UI/UX Design?"
 subtitle: "Understanding the difference between User Interface and User Experience"
-slug: "o-que-e-ui-ux"
+slug: "what-is-ui-ux-design"
 category: "design"
 date: "2025-04-15T12:00:00Z"
 excerpt: "Learn the fundamentals of UI/UX design and why they are crucial for creating successful digital products."
@@ -40,7 +40,3 @@ Lorem ipsum dolor sit amet, *consectetur adipiscing elit*. Vivamus efficitur ex 
 
 > *"Lorem ipsum dolor sit amet. Great products excel at both UI and UX design."*  
 > — Design Principles
-
----
-
-[Design Resources](https://www.interaction-design.org)

@@ -1,37 +1,29 @@
-import Link from 'next/link';
-import { Post } from '../../_types/post';
-import { getAllCategories } from '../../_lib/getAllCategories';
+// import Link from "next/link";
+// import { Post } from "../../_types/post";
+// import { getAllCategories } from "../../_lib/getAllCategories";
 
-interface PostCardProps {
-    post: Post;
-}
+// interface LatestNewsCardProps {
+//   post: Post;
+// }
 
-export function LatestNewsCard({ post }: PostCardProps) {
-    const categories = getAllCategories();
-    const category = categories.find(cat => cat.slug === post.category);
+// const getImageStyle = (thumbImage: string) => ({
+//   backgroundImage: `url(${thumbImage})`,
+//   backgroundSize: "cover",
+//   backgroundPosition: "center",
+// });
 
-    return (
-        <Link
-            href={`/blog/${post.category}/${post.slug}`}
-            className='flex flex-col gap-2'
-        >
-            <div
-                style={{
-                    backgroundColor: '#f6f6f6',
-                    backgroundImage: `url(${post.thumbImage})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    height: '100px',
-                    width: '100%',
-                }}
-            />
+// export function LatestNewsCard({ post }: LatestNewsCardProps) {
+//   const category = getAllCategories().find((cat) => cat.slug === post.category);
+//   const postUrl = `/blog/${post.category}/${post.slug}`;
 
-            <span className='text-[#666666] text-sm underline'>{category?.name}</span>
-            <h3 className=''>{post.title}</h3>
-
-            <div className='flex items-center justify-center w-full max-w-4 h-4 border-[1px] border-[#0E0E0E] rounded-full'>
-                <span className='text-[#0E0E0E] font-extrabold text-sm'>{'>'}</span>
-            </div>
-        </Link>
-    );
-}
+//   return (
+//     <Link href={postUrl} className="flex flex-col gap-2">
+//       <div className="h-24 w-full bg-gray-100" style={getImageStyle(post.thumbImage)} />
+//       <span className="text-gray-600 text-sm underline">{category?.name}</span>
+//       <h3>{post.title}</h3>
+//       <div className="flex items-center justify-center w-full max-w-4 h-4 border border-gray-900 rounded-full">
+//         <span className="text-gray-900 font-extrabold text-sm">&gt;</span>
+//       </div>
+//     </Link>
+//   );
+// }

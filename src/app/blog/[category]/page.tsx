@@ -1,11 +1,14 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+
 import { blogRepository } from "../_lib/blogRepository";
 import { CategorySlug } from "../_types/category";
-import PostList from "../_components/PostList";
-import Pagination from "../_components/Pagination";
-import Sidebar from "../_components/Sidebar";
-import Breadcrumb from "../_components/Breadcrumb";
+import { Breadcrumb } from "../_components/Breadcrumb";
+import { Pagination } from "../_components/Pagination";
+import { PostList } from "../_components/PostList";
+import { Sidebar } from "../_components/Sidebar";
+import { UITitle } from "../_components/UITitle";
+import { UISubtitle } from "../_components/UISubtitle";
 
 type PageProps = {
   params: Promise<{ category: string }>;
@@ -53,21 +56,17 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
   const categories = blogRepository.getCategories();
   const categoryData = categories.find((cat) => cat.slug === category);
 
-  // Check if category exists
   if (!categoryData) {
     notFound();
   }
 
-  // Ensure searchParams is properly awaited
   const page = searchParams ? await searchParams : undefined;
   const currentPage = page?.page ? parseInt(page.page) : 1;
-
   const posts = blogRepository.getByCategory(category as CategorySlug);
 
-  // Implement pagination
+  // Calculate pagination
   const totalPosts = posts.length;
   const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
-
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
   const endIndex = startIndex + POSTS_PER_PAGE;
   const currentPosts = posts.slice(startIndex, endIndex);
@@ -78,26 +77,24 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
   ];
 
   return (
-    <>
-      <div className="container">
-        <Breadcrumb items={breadcrumbItems} />
+    <div className="container">
+      <Breadcrumb items={breadcrumbItems} />
 
-        <div className="mb-10">
-          <h1 className="text-4xl font-bold">{categoryData.name}</h1>
-          <p className="uppercase text-sm font-medium text-primary mt-2">Últimos Artigos</p>
+      <div className="mb-14">
+        {categoryData.name && <UITitle title={categoryData.name} />}
+        <UISubtitle>Últimos Artigos</UISubtitle>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-10">
+        <div className="lg:col-span-3">
+          <PostList posts={currentPosts} />
+          <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl={`/blog/${category}`} />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-10">
-          <div className="lg:col-span-3">
-            <PostList posts={currentPosts} />
-            <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl={`/blog/${category}`} />
-          </div>
-
-          <div className="lg:col-span-1 mt-10 lg:mt-0">
-            <Sidebar />
-          </div>
+        <div className="lg:col-span-1 mt-10 lg:mt-0">
+          <Sidebar />
         </div>
       </div>
-    </>
+    </div>
   );
 }

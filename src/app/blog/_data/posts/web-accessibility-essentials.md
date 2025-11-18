@@ -62,7 +62,3 @@ Aliquam erat volutpat. Donec nec urna vitae lacus dictum iaculis. *Mauris bibend
 
 > *"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accessibility benefits everyone."*  
 > — WCAG Guidelines
-
----
-
-[Accessibility Resources](https://www.w3.org/WAI/)

@@ -85,7 +85,3 @@ git push
 
 > *"Lorem ipsum dolor sit amet. The best workflow depends on your team's needs and deployment strategy."*  
 > — Git Workflow Guide
-
----
-
-[Git Flow Documentation](https://nvie.com/posts/a-successful-git-branching-model/)

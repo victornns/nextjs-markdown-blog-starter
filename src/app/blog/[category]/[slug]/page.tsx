@@ -1,20 +1,60 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+
 import { blogRepository } from "../../_lib/blogRepository";
-import Sidebar from "../../_components/Sidebar";
-import Breadcrumb from "../../_components/Breadcrumb";
+import { Breadcrumb } from "../../_components/Breadcrumb";
+import { Sidebar } from "../../_components/Sidebar";
+import { UITitle } from "../../_components/UITitle";
 
 type PageProps = {
   params: Promise<{ category: string; slug: string }>;
   searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
+type Post = {
+  title: string;
+  seoDescription?: string;
+  excerpt: string;
+  category: string;
+  slug: string;
+  coverImage?: string;
+  date: string;
+  readingTimeMinutes: number;
+  htmlContent: string;
+};
+
+// Helper functions
+const formatDate = (date: string) =>
+  new Date(date).toLocaleDateString("pt-BR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+const getReadingTimeLabel = (minutes: number) => `${minutes} ${minutes > 1 ? "minutos" : "minuto"} de leitura`;
+
+const createMetadata = (post: Post): Metadata => ({
+  title: `${post.title} | Blog`,
+  description: post.seoDescription || post.excerpt,
+  openGraph: {
+    title: post.title,
+    description: post.seoDescription || post.excerpt,
+    type: "article",
+    url: `/blog/${post.category}/${post.slug}`,
+    images: post.coverImage ? [{ url: post.coverImage }] : undefined,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: post.title,
+    description: post.seoDescription || post.excerpt,
+    images: post.coverImage ? [post.coverImage] : undefined,
+  },
+});
+
 // Generate metadata for the post page
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  // read route params
   const { slug } = await params;
-
   const post = await blogRepository.getPost(slug);
 
   if (!post) {
@@ -23,29 +63,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  return {
-    title: `${post.title} | Blog`,
-    description: post.seoDescription || post.excerpt,
-    openGraph: {
-      title: post.title,
-      description: post.seoDescription || post.excerpt,
-      type: "article",
-      url: `/blog/${post.category}/${post.slug}`,
-      images: post.coverImage ? [{ url: post.coverImage }] : undefined,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.seoDescription || post.excerpt,
-      images: post.coverImage ? [post.coverImage] : undefined,
-    },
-  };
+  return createMetadata(post);
 }
 
 // Generate static paths for all posts
 export async function generateStaticParams() {
   const posts = blogRepository.getAll();
-
   return posts.map((post) => ({
     category: post.category,
     slug: post.slug,
@@ -53,36 +76,26 @@ export async function generateStaticParams() {
 }
 
 export default async function PostPage({ params }: PageProps) {
-  // Read route params
   const { category, slug } = await params;
 
-  // Validate that category exists
+  // Validate category and post
   const categories = blogRepository.getCategories();
   const categoryExists = categories.some((cat) => cat.slug === category);
 
-  if (!categoryExists) {
-    notFound();
-  }
+  if (!categoryExists) notFound();
 
-  // Get post data
   const post = await blogRepository.getPost(slug);
 
-  // Validate post exists and belongs to the specified category
-  if (!post || post.category !== category) {
-    notFound();
-  }
+  if (!post || post.category !== category) notFound();
 
-  const formattedDate = new Date(post.date).toLocaleDateString("pt-BR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-
+  // Prepare data
+  const formattedDate = formatDate(post.date);
   const categoryData = categories.find((cat) => cat.slug === post.category);
+  const categoryName = categoryData?.name || post.category;
 
   const breadcrumbItems = [
     { name: "Blog", href: "/blog" },
-    { name: categoryData?.name || category, href: `/blog/${category}` },
+    { name: categoryName, href: `/blog/${category}` },
     { name: post.title, href: `/blog/${category}/${slug}`, current: true },
   ];
 
@@ -91,22 +104,21 @@ export default async function PostPage({ params }: PageProps) {
       <header>
         <div className="container">
           <Breadcrumb items={breadcrumbItems} />
-
-          {post.title && <h1 className="text-3xl lg:text-5xl xl:text-6xl font-light !leading-tight mb-8 xl:mb-10">{post.title}</h1>}
+          <UITitle title={post.title} />
 
           <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center">
-            {/* category label */}
-            <Link href={`/blog/${post.category}`} className="bg-primary uppercase text-white text-base px-6 py-2 font-medium tracking-[4px]">
-              {categoryData?.name || post.category}
+            <Link href={`/blog/${post.category}`} className="bg-primary uppercase text-white text-base px-6 py-2 font-medium tracking-widest hover:opacity-90 transition-opacity">
+              {categoryName}
             </Link>
 
-            {/* reading time */}
-            <div className="flex flex-row gap-2 items-center">
-              <time className="text-xs">{formattedDate}</time>
-              <span className="text-secondary">•</span>
-              <span className="text-xs">
-                {post.readingTimeMinutes} {post.readingTimeMinutes > 1 ? "minutos" : "minuto"} de leitura
+            <div className="flex flex-row gap-2 items-center text-neutral-600">
+              <time className="text-xs" dateTime={post.date}>
+                {formattedDate}
+              </time>
+              <span className="text-secondary" aria-hidden="true">
+                •
               </span>
+              <span className="text-xs">{getReadingTimeLabel(post.readingTimeMinutes)}</span>
             </div>
           </div>
         </div>
@@ -114,19 +126,17 @@ export default async function PostPage({ params }: PageProps) {
 
       {post.coverImage && (
         <div className="container">
-          <section className="no-padding mt-14 w-full h-[500px] bg-center bg-no-repeat" style={{ backgroundImage: `url(${post.coverImage})` }}></section>
+          <section className="no-padding mt-14 w-full h-[500px] bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url(${post.coverImage})` }} aria-label="Imagem de capa" />
         </div>
       )}
 
       <div className="container py-16">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-10">
-          <div className="lg:col-span-3">
-            <article className="prose prose-neutral prose-headings:font-semibold max-w-none" dangerouslySetInnerHTML={{ __html: post.htmlContent }} />
-          </div>
+          <article className="lg:col-span-3 prose prose-neutral prose-headings:font-semibold max-w-none" dangerouslySetInnerHTML={{ __html: post.htmlContent }} />
 
-          <div className="lg:col-span-1 mt-10 lg:mt-0">
+          <aside className="lg:col-span-1 mt-10 lg:mt-0">
             <Sidebar />
-          </div>
+          </aside>
         </div>
       </div>
     </>
