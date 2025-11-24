@@ -13,7 +13,7 @@ Originally minimal, the project now includes an optional Modern UI branch with r
 
 ## AI-driven architecture
 
-The initial prompt used to shape the project before later refinements and the Modern UI redesign — is available in [`AI_PROMPT.md`](https://github.com/victornns/nextjs-markdown-blog-starter/blob/feat/claude-3.7-agent-rev/AI_PROMPT.md).
+The initial prompt used to shape the project before later refinements and the Modern UI redesign — is available in [`initial-prompt.md`](./initial-prompt.md).
 
 Key decisions supported by AI:
 - Blog architecture and folder structure
@@ -63,30 +63,6 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Using Docker Compose
-
-```bash
-docker-compose up dev
-```
-
----
-
-## Building and deploying in production
-
-### With Node.js
-
-```bash
-npm install
-npm run build
-npm start
-```
-
-### With Docker Compose
-
-```bash
-docker-compose up prod
-```
 
 ---
 

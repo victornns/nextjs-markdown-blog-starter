@@ -1,11 +1,11 @@
 # AI_PROMPT.md
 
-> ⚠️ **IMPORTANT:**  
+> **IMPORTANT:**  
 > This file contains the main prompt used to guide AI models such as GitHub Copilot, Claude 3.7 Sonnet, or GPT-4o in generating and structuring this project.
 
 ---
 
-## 🧠 Full Prompt (Blog with Next.js 15, Markdown, SEO, and Modular Architecture)
+## Full Prompt (Blog with Next.js 15, Markdown, SEO, and Modular Architecture)
 
 **Initial framing (for Copilot or other model):**
 
