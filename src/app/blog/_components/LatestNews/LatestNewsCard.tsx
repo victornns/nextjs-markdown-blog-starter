@@ -28,7 +28,7 @@ export function LatestNewsCard({ post }: LatestNewsCardProps) {
         />
       )}
       <span className="text-gray-600 text-sm">{category?.name}</span>
-      <h3>{post.title}</h3>
+      <h2>{post.title}</h2>
       <div className="flex items-center justify-center w-full max-w-4 h-4 border border-gray-900 rounded-full">
         <span className="text-gray-900 font-extrabold text-sm">&gt;</span>
       </div>
