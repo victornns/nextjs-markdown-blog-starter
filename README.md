@@ -2,6 +2,8 @@
 
 A scalable, high-performance, and SEO-focused blog starter powered by Next.js 15, Markdown, and TypeScript — designed collaboratively with AI (Claude 3.7 Sonnet) to explore intelligent architecture planning and progressively refined into a modern UI experience.
 
+![Preview](./public/preview.png)
+
 ---
 
 ## About the project
