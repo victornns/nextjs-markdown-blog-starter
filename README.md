@@ -1,22 +1,19 @@
 # nextjs-markdown-blog-starter
 
-A scalable, high-performance, and SEO-focused blog starter powered by Next.js 15, Markdown, and TypeScript — designed collaboratively with AI (Claude 3.7 Sonnet) to explore intelligent architecture planning.
-
-![Preview](./public/demo-preview.gif)
+A scalable, high-performance, and SEO-focused blog starter powered by Next.js 15, Markdown, and TypeScript — designed collaboratively with AI (Claude 3.7 Sonnet) to explore intelligent architecture planning and progressively refined into a modern UI experience.
 
 ---
 
-## 📌 About the project
+## About the project
 
 A boilerplate for building modern blogs with a static generation strategy (SSG) using Next.js 15, Markdown, and TypeScript.  
-Designed to be modular, scalable, and production-ready — with built-in support for categories, pagination, SEO, styling, and future API integration.
+Originally minimal, the project now includes an optional Modern UI branch with redesigned components and extra UI utilities — while keeping the core lightweight, modular, and production-ready.
 
 ---
 
-## 🤖 AI-driven architecture
+## AI-driven architecture
 
-This project was designed collaboratively with Claude 3.7 Sonnet via GitHub Copilot Pro.  
-You can find the full prompt that guided the architecture in [`AI_PROMPT.md`](./AI_PROMPT.md).
+The initial prompt used to shape the project before later refinements and the Modern UI redesign — is available in [`AI_PROMPT.md`](https://github.com/victornns/nextjs-markdown-blog-starter/blob/feat/claude-3.7-agent-rev/AI_PROMPT.md).
 
 Key decisions supported by AI:
 - Blog architecture and folder structure
@@ -25,21 +22,25 @@ Key decisions supported by AI:
 
 ---
 
-## ⚙️ Technologies used
+## Technologies used
 
 **Core Stack:**
 - [Next.js 15](https://nextjs.org/)
 - App Router
 - Markdown (`.md`)
 - TypeScript
+- `gray-matter` (frontmatter parsing)
+- `remark` / `remark-html`
 
 **Styling:**
 - [Tailwind CSS](https://tailwindcss.com/)
+- `@tailwindcss/typography`
 - SCSS (Sass)
 
-**Utilities:**
-- `gray-matter` (frontmatter parsing)
-- `remark` or `rehype` (Markdown to HTML conversion)
+**UI (Modern UI branch):**
+- **Swiper** — used only in the Related Posts component.
+- **MUI + Emotion** — used only for a custom dropdown component.
+- Both are optional and can be removed easily if you prefer a custom UI.
 
 **Others:**
 - Dynamic SEO with `generateMetadata`
@@ -48,11 +49,11 @@ Key decisions supported by AI:
 
 ---
 
-## 🧪 Getting started
+## Getting started
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-### 🔧 Using Node.js
+### Using Node.js
 
 ```bash
 git clone https://github.com/victornns/nextjs-markdown-blog-starter
@@ -63,7 +64,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### 🐳 Using Docker Compose
+### Using Docker Compose
 
 ```bash
 docker-compose up dev
@@ -71,7 +72,7 @@ docker-compose up dev
 
 ---
 
-## 🚀 Building and deploying in production
+## Building and deploying in production
 
 ### With Node.js
 
@@ -89,15 +90,15 @@ docker-compose up prod
 
 ---
 
-## 🪄 Minimal setup (branch: `feat/minimal-setup`)
+## Minimal setup (branch: `feat/minimal-setup`)
 
-If you're looking for a lightweight base with only the essential files and no extras like Docker, README or config templates, check out the [`feat/minimal-setup`](https://github.com/victornns/nextjs-markdown-blog-starter/tree/feat/minimal-setup) branch.
+If you're looking for a lightweight base with only the essential files — without Docker, UI extras, or config templates — check out the [`feat/minimal-setup`](https://github.com/victornns/nextjs-markdown-blog-starter/tree/feat/minimal-setup) branch.
 
-It’s ideal for kickstarting your own custom blog structure.
+Ideal for kickstarting your own custom blog structure.
 
 ---
 
-## 📁 Project structure (summary)
+## Project structure (summary)
 
 ```
 /src/app/blog/
@@ -115,13 +116,7 @@ It’s ideal for kickstarting your own custom blog structure.
 
 ---
 
-## 📚 Learn more
-
-- [Next.js Documentation](https://nextjs.org/docs)
-
----
-
-## 🪪 License
+## License
 
 This project is licensed under the [MIT License](./LICENSE).  
 Distributed under the MIT License. See `LICENSE` for more information.
