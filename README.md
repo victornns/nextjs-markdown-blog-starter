@@ -8,7 +8,8 @@ A scalable, high-performance, and SEO-focused blog starter powered by Next.js 15
 
 ## About the project
 
-A boilerplate for building modern blogs with a static generation strategy (SSG) using Next.js 15, Markdown, and TypeScript.  
+A boilerplate for building modern blogs with a static generation strategy (SSG) using Next.js 15, Markdown, and TypeScript.
+
 Originally minimal, the project now includes an optional Modern UI branch with redesigned components and extra UI utilities — while keeping the core lightweight, modular, and production-ready.
 
 ---
