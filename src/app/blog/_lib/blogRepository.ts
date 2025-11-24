@@ -35,4 +35,11 @@ export const blogRepository = {
       };
     });
   },
+
+  getRelatedPosts(currentSlug: string, category: CategorySlug, limit = 3): Post[] {
+    return this.getByCategory(category)
+      .filter((post) => post.slug !== currentSlug)
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .slice(0, limit);
+  },
 };

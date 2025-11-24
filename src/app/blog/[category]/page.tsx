@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!categoryData) {
     return {
-      title: "Categoria não encontrada!",
+      title: "Category Not Found!",
     };
   }
 
@@ -82,13 +82,17 @@ export default async function CategoryPage({ params, searchParams }: PageProps) 
 
       <div className="mb-14">
         {categoryData.name && <UITitle title={categoryData.name} />}
-        <UISubtitle>Últimos Artigos</UISubtitle>
+        <UISubtitle>Latest Posts</UISubtitle>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-10">
         <div className="lg:col-span-3">
           <PostList posts={currentPosts} />
-          <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl={`/blog/${category}`} />
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            baseUrl={`/blog/${category}`}
+          />
         </div>
 
         <div className="lg:col-span-1 mt-10 lg:mt-0">

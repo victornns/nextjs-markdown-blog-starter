@@ -21,10 +21,13 @@ export function CategoryList({ data }: CategoryListProps) {
   return (
     <div>
       <div className="flex flex-row sm:items-center gap-2 justify-between mb-4">
-        <p className="font-semibold uppercase tracking-widest">Categorias</p>
+        <p className="font-semibold uppercase tracking-widest">Categories</p>
         {!isOnBlogHome && (
-          <Link href="/blog" className="underline text-sm font-medium">
-            Ver todos
+          <Link
+            href="/blog"
+            className="underline text-sm font-medium"
+          >
+            View All
           </Link>
         )}
       </div>
@@ -42,7 +45,12 @@ export function CategoryList({ data }: CategoryListProps) {
                 defaultValue: isSubpath(category.slug) ? "toggle-content" : undefined,
               }}
             >
-              {category.coverImage && <div style={{ backgroundImage: `url(${category.coverImage})` }} aria-label={`${category.name} category image`} />}
+              {category.coverImage && (
+                <div
+                  style={{ backgroundImage: `url(${category.coverImage})` }}
+                  aria-label={`${category.name} category image`}
+                />
+              )}
               {category.recentPosts?.length > 0 && (
                 <ul className="pl-5">
                   {category.recentPosts.map((post) => {
@@ -50,16 +58,25 @@ export function CategoryList({ data }: CategoryListProps) {
                     const isCurrentPost = pathname === postPath;
 
                     return (
-                      <li key={post.slug} className="list-none mb-2">
-                        <Link href={postPath} className={`text-sm relative before:content-['>'] before:absolute before:-left-4 before:top-0 before:font-semibold ${isCurrentPost ? "pointer-events-none !no-underline text-primary font-semibold" : ""}`}>
+                      <li
+                        key={post.slug}
+                        className="list-none mb-2"
+                      >
+                        <Link
+                          href={postPath}
+                          className={`text-sm relative before:content-['>'] before:absolute before:-left-4 before:top-0 before:font-semibold ${isCurrentPost ? "pointer-events-none !no-underline text-primary font-semibold" : ""}`}
+                        >
                           {post.title}
                         </Link>
                       </li>
                     );
                   })}
                   {!isCurrentCategory && (
-                    <Link href={categoryPath} className="mt-6 block underline text-sm font-medium">
-                      Ver todos
+                    <Link
+                      href={categoryPath}
+                      className="mt-6 block underline text-sm font-medium"
+                    >
+                      View All
                     </Link>
                   )}
                 </ul>
